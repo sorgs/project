@@ -51,20 +51,20 @@ object PhotoUtils {
     if (baseActivity != null) {
       val rxPermissions = RxPermissions(baseActivity)
       rxPermissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE)
-          .subscribe { permission ->
-            when {
-              permission.granted -> {
-                // 用户已经同意该权限
-                photo(rxPermissions, baseActivity, onNext, CAMERA_SUCCESS)
-                val uri = goCamera(baseActivity, cameraSuccess)
-                onNext?.call(uri)
-              }
-              permission.shouldShowRequestPermissionRationale -> // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-                ToastUtils.showShort(R.string.toast_no_permission)
-              else -> // 用户拒绝了该权限，并且选中『不再询问』
-                NeverAskAgainDialog.goToSettingDialog(baseActivity)
+        .subscribe { permission ->
+          when {
+            permission.granted -> {
+              // 用户已经同意该权限
+              photo(rxPermissions, baseActivity, onNext, CAMERA_SUCCESS)
+              val uri = goCamera(baseActivity)
+              onNext?.call(uri)
             }
+            permission.shouldShowRequestPermissionRationale -> // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+              ToastUtils.showShort(R.string.toast_no_permission)
+            else -> // 用户拒绝了该权限，并且选中『不再询问』
+              NeverAskAgainDialog.goToSettingDialog(baseActivity)
           }
+        }
     }
   }
 
@@ -76,30 +76,29 @@ object PhotoUtils {
     cameraSuccess: Int
   ) {
     rxPermissions.requestEach(Manifest.permission.CAMERA)
-        .subscribe { permission ->
-          if (permission.granted) {
-            // 用户已经同意该权限
-            photo(rxPermissions, baseActivity, onNext, CAMERA_SUCCESS)
-            val uri = goCamera(baseActivity, cameraSuccess)
-            onNext?.call(uri)
-          } else if (permission.shouldShowRequestPermissionRationale) {
-            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-            ToastUtils.showShort(R.string.toast_no_permission)
-          } else {
-            // 用户拒绝了该权限，并且选中『不再询问』
-            NeverAskAgainDialog.goToSettingDialog(baseActivity!!)
-          }
+      .subscribe { permission ->
+        if (permission.granted) {
+          // 用户已经同意该权限
+          photo(rxPermissions, baseActivity, onNext, CAMERA_SUCCESS)
+          val uri = goCamera(baseActivity)
+          onNext?.call(uri)
+        } else if (permission.shouldShowRequestPermissionRationale) {
+          // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+          ToastUtils.showShort(R.string.toast_no_permission)
+        } else {
+          // 用户拒绝了该权限，并且选中『不再询问』
+          NeverAskAgainDialog.goToSettingDialog(baseActivity!!)
         }
+      }
   }
 
   private fun goCamera(
-    context: Activity?,
-    cameraSuccess: Int
+    context: Activity?
   ): Uri {
     return if (Build.VERSION.SDK_INT >= 24) {
-      goCameraAfter24(context!!, CAMERA_SUCCESS)
+      goCameraAfter24(context!!)
     } else {
-      goCameraBefore24(context!!, CAMERA_SUCCESS)
+      goCameraBefore24(context!!)
     }
   }
 
@@ -108,12 +107,11 @@ object PhotoUtils {
    * sdk大于24，需要用FileProvider
    */
   private fun goCameraAfter24(
-    context: Activity,
-    cameraSuccess: Int
+    context: Activity
   ): Uri {
     val file = File(
-        context.getExternalFilesDir(Environment.DIRECTORY_DCIM),
-        System.currentTimeMillis().toString() + ".jpg"
+      context.getExternalFilesDir(Environment.DIRECTORY_DCIM),
+      System.currentTimeMillis().toString() + ".jpg"
     )
     try {
       if (file.exists()) {
@@ -139,12 +137,11 @@ object PhotoUtils {
    * 拍照
    */
   private fun goCameraBefore24(
-    context: Activity,
-    cameraSuccess: Int
+    context: Activity
   ): Uri {
     val file = File(
-        context.getExternalFilesDir(Environment.DIRECTORY_DCIM),
-        System.currentTimeMillis().toString() + ".jpg"
+      context.getExternalFilesDir(Environment.DIRECTORY_DCIM),
+      System.currentTimeMillis().toString() + ".jpg"
     )
     try {
       if (file.exists()) {
@@ -182,18 +179,18 @@ object PhotoUtils {
     if (fragment != null) {
       val rxPermissions = RxPermissions(Objects.requireNonNull<FragmentActivity>(fragment.activity))
       rxPermissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE)
-          .subscribe { permission ->
-            if (permission.granted) {
-              // 用户已经同意该权限
-              photo(rxPermissions, fragment, onNext, cameraSuccess)
-            } else if (permission.shouldShowRequestPermissionRationale) {
-              // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-              ToastUtils.showShort(R.string.toast_no_permission)
-            } else {
-              // 用户拒绝了该权限，并且选中『不再询问』
-              NeverAskAgainDialog.goToSettingDialog(fragment.activity!!)
-            }
+        .subscribe { permission ->
+          if (permission.granted) {
+            // 用户已经同意该权限
+            photo(rxPermissions, fragment, onNext)
+          } else if (permission.shouldShowRequestPermissionRationale) {
+            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+            ToastUtils.showShort(R.string.toast_no_permission)
+          } else {
+            // 用户拒绝了该权限，并且选中『不再询问』
+            NeverAskAgainDialog.goToSettingDialog(fragment.activity!!)
           }
+        }
     }
   }
 
@@ -201,25 +198,23 @@ object PhotoUtils {
   private fun photo(
     rxPermissions: RxPermissions,
     fragment: BaseFragment?,
-    onNext: Action1<Uri>?,
-    cameraSuccess: Int
+    onNext: Action1<Uri>?
   ) {
     if (fragment != null) {
       rxPermissions.request(Manifest.permission.CAMERA)
-          .subscribe { permission ->
-            if (permission!!) {
-              val uri = goCamera(fragment, cameraSuccess)
-              onNext?.call(uri)
-            } else {
-              ToastUtils.showShort(R.string.toast_no_permission)
-            }
+        .subscribe { permission ->
+          if (permission!!) {
+            val uri = goCamera(fragment)
+            onNext?.call(uri)
+          } else {
+            ToastUtils.showShort(R.string.toast_no_permission)
           }
+        }
     }
   }
 
   private fun goCamera(
-    fragment: Fragment?,
-    cameraSuccess: Int
+    fragment: Fragment?
   ): Uri {
     return if (Build.VERSION.SDK_INT >= 24) {
       goCameraAfter24(fragment!!, CAMERA_SUCCESS)
@@ -237,8 +232,8 @@ object PhotoUtils {
     cameraSuccess: Int
   ): Uri {
     val file = File(
-        fragment.activity!!.getExternalFilesDir(Environment.DIRECTORY_DCIM),
-        System.currentTimeMillis().toString() + ".jpg"
+      fragment.activity!!.getExternalFilesDir(Environment.DIRECTORY_DCIM),
+      System.currentTimeMillis().toString() + ".jpg"
     )
     try {
       if (file.exists()) {
@@ -269,8 +264,8 @@ object PhotoUtils {
     cameraSuccess: Int
   ): Uri {
     val file = File(
-        fragment.activity!!.getExternalFilesDir(Environment.DIRECTORY_DCIM),
-        System.currentTimeMillis().toString() + ".jpg"
+      fragment.activity!!.getExternalFilesDir(Environment.DIRECTORY_DCIM),
+      System.currentTimeMillis().toString() + ".jpg"
     )
     try {
       if (file.exists()) {
@@ -292,7 +287,7 @@ object PhotoUtils {
   /**
    * 相册选择
    */
-  @SuppressLint("CheckResult", "IntentReset")
+  @SuppressLint("CheckResult", "IntentReset", "ObsoleteSdkInt")
   fun gallery(
     baseActivity: BaseActivity?,
     photoSuccess: Int
@@ -300,34 +295,34 @@ object PhotoUtils {
     if (baseActivity != null) {
       val rxPermissions = RxPermissions(baseActivity)
       rxPermissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE)
-          .subscribe { permission ->
-            if (permission.granted) {
-              // 用户已经同意该权限
-              var intent = Intent(Intent.ACTION_GET_CONTENT)
-              if (Build.VERSION.SDK_INT < 19) {
-                //图库选择
-                intent = Intent(Intent.ACTION_GET_CONTENT)
-                intent.type = "image/*"
-                intent.addCategory(Intent.CATEGORY_OPENABLE)
+        .subscribe { permission ->
+          if (permission.granted) {
+            // 用户已经同意该权限
+            val intent: Intent
+            if (Build.VERSION.SDK_INT < 19) {
+              //图库选择
+              intent = Intent(Intent.ACTION_GET_CONTENT)
+              intent.type = "image/*"
+              intent.addCategory(Intent.CATEGORY_OPENABLE)
 
-              } else {
-                intent = Intent(
-                    Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                )
-                intent.type = "image/*"
-              }
-              if (intent.resolveActivity(baseActivity.packageManager) != null) {
-                baseActivity.startActivityForResult(intent, photoSuccess)
-              }
-            } else if (permission.shouldShowRequestPermissionRationale) {
-              // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-              ToastUtils.showShort(R.string.toast_no_permission)
             } else {
-              // 用户拒绝了该权限，并且选中『不再询问』
-              NeverAskAgainDialog.goToSettingDialog(baseActivity)
+              intent = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+              )
+              intent.type = "image/*"
             }
+            if (intent.resolveActivity(baseActivity.packageManager) != null) {
+              baseActivity.startActivityForResult(intent, photoSuccess)
+            }
+          } else if (permission.shouldShowRequestPermissionRationale) {
+            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+            ToastUtils.showShort(R.string.toast_no_permission)
+          } else {
+            // 用户拒绝了该权限，并且选中『不再询问』
+            NeverAskAgainDialog.goToSettingDialog(baseActivity)
           }
+        }
 
     }
 
@@ -336,7 +331,7 @@ object PhotoUtils {
   /**
    * 相册选择
    */
-  @SuppressLint("CheckResult", "IntentReset")
+  @SuppressLint("CheckResult", "IntentReset", "ObsoleteSdkInt")
   fun gallery(
     baseFragment: BaseFragment?,
     photoSuccess: Int
@@ -344,33 +339,33 @@ object PhotoUtils {
     if (baseFragment != null) {
       val rxPermissions = RxPermissions(baseFragment.activity!!)
       rxPermissions.requestEach(Manifest.permission.READ_EXTERNAL_STORAGE)
-          .subscribe { permission ->
-            if (permission.granted) {
-              // 用户已经同意该权限
-              var intent = Intent(Intent.ACTION_GET_CONTENT)
-              if (Build.VERSION.SDK_INT < 19) {
-                //图库选择
-                intent = Intent(Intent.ACTION_GET_CONTENT)
-                intent.type = "image/*"
-                intent.addCategory(Intent.CATEGORY_OPENABLE)
-              } else {
-                intent = Intent(
-                    Intent.ACTION_PICK,
-                    MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                )
-                intent.type = "image/*"
-              }
-              if (intent.resolveActivity(baseFragment.activity!!.packageManager) != null) {
-                baseFragment.startActivityForResult(intent, photoSuccess)
-              }
-            } else if (permission.shouldShowRequestPermissionRationale) {
-              // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-              ToastUtils.showShort(R.string.toast_no_permission)
+        .subscribe { permission ->
+          if (permission.granted) {
+            // 用户已经同意该权限
+            val intent: Intent
+            if (Build.VERSION.SDK_INT < 19) {
+              //图库选择
+              intent = Intent(Intent.ACTION_GET_CONTENT)
+              intent.type = "image/*"
+              intent.addCategory(Intent.CATEGORY_OPENABLE)
             } else {
-              // 用户拒绝了该权限，并且选中『不再询问』
-              NeverAskAgainDialog.goToSettingDialog(baseFragment.activity!!)
+              intent = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+              )
+              intent.type = "image/*"
             }
+            if (intent.resolveActivity(baseFragment.activity!!.packageManager) != null) {
+              baseFragment.startActivityForResult(intent, photoSuccess)
+            }
+          } else if (permission.shouldShowRequestPermissionRationale) {
+            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
+            ToastUtils.showShort(R.string.toast_no_permission)
+          } else {
+            // 用户拒绝了该权限，并且选中『不再询问』
+            NeverAskAgainDialog.goToSettingDialog(baseFragment.activity!!)
           }
+        }
     }
   }
 

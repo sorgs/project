@@ -1,7 +1,6 @@
 package com.sorgs.baseproject.utils
 
 import android.util.Log
-import com.sorgs.baseproject.BuildConfig
 
 /**
  * description: logcat日志.
@@ -9,10 +8,15 @@ import com.sorgs.baseproject.BuildConfig
  * @author Sorgs.
  */
 object LogUtils {
+
+  fun setLogSwitch(swithc: Boolean) {
+    LOG_ENABLE = swithc
+  }
+
   /**
    * 设为false关闭日志
    */
-  private val LOG_ENABLE = BuildConfig.DEBUG
+  private var LOG_ENABLE = true
   /**
    * 默认TAG
    */

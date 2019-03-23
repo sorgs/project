@@ -10,6 +10,7 @@ import com.sorgs.baseproject.base.GlobalApplication
  *
  * @author Sorgs.
  */
+@SuppressLint("StaticFieldLeak")
 object ToastUtils {
 
   private var mToast: Toast? = null
@@ -25,11 +26,7 @@ object ToastUtils {
    * @param resId 资源文件
    */
   fun showShort(@StringRes resId: Int) {
-    if (mContext != null) {
-      show(mContext.getString(resId), Toast.LENGTH_SHORT)
-    } else {
-      throw RuntimeException("ToastUtils not initialized !")
-    }
+    show(mContext.getString(resId), Toast.LENGTH_SHORT)
   }
 
   /**
@@ -40,16 +37,12 @@ object ToastUtils {
    */
   @SuppressLint("ShowToast")
   private fun show(string: String, lengthShort: Int) {
-    if (mContext != null) {
-      if (mToast == null) {
-        mToast = Toast.makeText(mContext, "", Toast.LENGTH_SHORT)
-      }
-      mToast!!.setText(string)
-      mToast!!.duration = lengthShort
-      mToast!!.show()
-    } else {
-      throw RuntimeException("ToastUtils not initialized !")
+    if (mToast == null) {
+      mToast = Toast.makeText(mContext, "", Toast.LENGTH_SHORT)
     }
+    mToast!!.setText(string)
+    mToast!!.duration = lengthShort
+    mToast!!.show()
   }
 
   /**
@@ -67,11 +60,7 @@ object ToastUtils {
    * @param resId 资源文件
    */
   fun showLong(@StringRes resId: Int) {
-    if (mContext != null) {
-      show(mContext.getString(resId), Toast.LENGTH_LONG)
-    } else {
-      throw RuntimeException("ToastUtils not initialized !")
-    }
+    show(mContext.getString(resId), Toast.LENGTH_LONG)
   }
 
   /**

@@ -45,8 +45,8 @@ class GrayscaleTransformation : BitmapTransformation() {
     return "GrayscaleTransformation()"
   }
 
-  override fun equals(o: Any?): Boolean {
-    return o is GrayscaleTransformation
+  override fun equals(other: Any?): Boolean {
+    return other is GrayscaleTransformation
   }
 
   override fun hashCode(): Int {

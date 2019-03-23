@@ -28,7 +28,7 @@ class BlurTransformation(private var radius: Int) : BitmapTransformation() {
     outHeight: Int
   ): Bitmap {
     //return nativeBlur(pool, toTransform, outWidth, outHeight);
-    return renderScriptBlur(context, pool, toTransform, outWidth, outHeight)
+    return renderScriptBlur(context, toTransform, outWidth)
   }
 
   /**
@@ -56,10 +56,8 @@ class BlurTransformation(private var radius: Int) : BitmapTransformation() {
    */
   private fun renderScriptBlur(
     context: Context,
-    pool: BitmapPool,
     source: Bitmap,
-    outWidth: Int,
-    outHeight: Int
+    outWidth: Int
   ): Bitmap {
 
     if (radius > 25) {
@@ -105,8 +103,8 @@ class BlurTransformation(private var radius: Int) : BitmapTransformation() {
     return "BlurTransformation"
   }
 
-  override fun equals(o: Any?): Boolean {
-    return o is GrayscaleTransformation
+  override fun equals(other: Any?): Boolean {
+    return other is GrayscaleTransformation
   }
 
   override fun hashCode(): Int {
