@@ -1,31 +1,31 @@
-package com.sorgs.baseproject.utils;
+package com.sorgs.baseproject.utils
 
-import android.util.Log;
-import com.sorgs.baseproject.BuildConfig;
+import android.util.Log
+import com.sorgs.baseproject.BuildConfig
 
 /**
  * description: logcat日志.
  *
  * @author Sorgs.
  */
-public final class LogUtils {
+object LogUtils {
   /**
    * 设为false关闭日志
    */
-  private final static boolean LOG_ENABLE = BuildConfig.DEBUG;
+  private val LOG_ENABLE = BuildConfig.DEBUG
   /**
    * 默认TAG
    */
-  private static String sTag = "Sorgs";
+  private val sTag = "Sorgs"
 
   /**
    * info
    *
    * @param msg debug log message
    */
-  public static void i(String msg) {
+  fun i(msg: String) {
     if (LOG_ENABLE) {
-      Log.i(sTag, msg);
+      Log.i(sTag, msg)
     }
   }
 
@@ -34,9 +34,9 @@ public final class LogUtils {
    *
    * @param msg debug log message
    */
-  public static void d(String msg) {
+  fun d(msg: String) {
     if (LOG_ENABLE) {
-      Log.d(sTag, msg);
+      Log.d(sTag, msg)
     }
   }
 
@@ -45,9 +45,9 @@ public final class LogUtils {
    *
    * @param msg error log message
    */
-  public static void e(String msg) {
+  fun e(msg: String) {
     if (LOG_ENABLE) {
-      Log.e(sTag, msg);
+      Log.e(sTag, msg)
     }
   }
 
@@ -56,9 +56,9 @@ public final class LogUtils {
    *
    * @param msg verbose log message
    */
-  public static void v(String msg) {
+  fun v(msg: String) {
     if (LOG_ENABLE) {
-      Log.v(sTag, msg);
+      Log.v(sTag, msg)
     }
   }
 
@@ -68,9 +68,9 @@ public final class LogUtils {
    * @param tag 自定义tag
    * @param msg message
    */
-  public static void i(String tag, String msg) {
+  fun i(tag: String, msg: String) {
     if (LOG_ENABLE) {
-      Log.i(tag, msg);
+      Log.i(tag, msg)
     }
   }
 
@@ -80,9 +80,9 @@ public final class LogUtils {
    * @param tag 自定义tag
    * @param msg message
    */
-  public static void d(String tag, String msg) {
+  fun d(tag: String, msg: String) {
     if (LOG_ENABLE) {
-      Log.d(tag, msg);
+      Log.d(tag, msg)
     }
   }
 
@@ -92,9 +92,9 @@ public final class LogUtils {
    * @param tag 自定义tag
    * @param msg message
    */
-  public static void e(String tag, String msg) {
+  fun e(tag: String, msg: String) {
     if (LOG_ENABLE) {
-      Log.e(tag, msg);
+      Log.e(tag, msg)
     }
   }
 
@@ -104,8 +104,8 @@ public final class LogUtils {
    * @param tag 自定义tag
    * @param msg message
    */
-  public static void allE(String tag, String msg) {
-    Log.e(tag, msg);
+  fun allE(tag: String, msg: String) {
+    Log.e(tag, msg)
   }
 
   /**
@@ -114,9 +114,9 @@ public final class LogUtils {
    * @param tag 自定义tag
    * @param msg message
    */
-  public static void v(String tag, String msg) {
+  fun v(tag: String, msg: String) {
     if (LOG_ENABLE) {
-      Log.v(tag, msg);
+      Log.v(tag, msg)
     }
   }
 }

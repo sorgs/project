@@ -14,7 +14,7 @@ import android.view.ViewGroup
 import com.sorgs.baseproject.utils.LogUtils
 
 /**
- * description: Fragment基类. https://www.jianshu.com/p/4eb74c9d5766
+ * description: Fragment基类.
  *
  * @author Sorgs.
  * Created date: 2018/12/31.
