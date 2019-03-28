@@ -40,6 +40,32 @@ internal object GlideImageLoader {
   }
 
   /**
+   * 带有渐入式效果的图片加载。
+   *
+   * @param context        上下文
+   * @param url            图片地址
+   * @param imageView      图片显示view
+   * @param holderResource 错误显示的图片和占位图资源ID
+   */
+  fun loadCrossFadeImage(
+    context: Context,
+    url: String,
+    imageView: ImageView,
+    holderResource: Int
+  ) {
+    Glide.with(context)
+      .load(url)
+      .apply(
+        RequestOptions()
+          .placeholder(holderResource)
+          .error(holderResource)
+          .optionalCenterCrop()
+      )
+      .transition(DrawableTransitionOptions().crossFade())
+      .into(imageView)
+  }
+
+  /**
    * 图片加载。
    *
    * @param context        上下文

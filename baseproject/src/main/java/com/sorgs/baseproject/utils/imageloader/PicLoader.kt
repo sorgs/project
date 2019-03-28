@@ -28,7 +28,24 @@ object PicLoader {
   }
 
   /**
-   * 图片加载。
+   * 带有渐入式效果的图片加载。
+   *
+   * @param context        上下文
+   * @param url            图片地址
+   * @param imageView      图片显示view
+   * @param holderResource 错误显示的图片和占位图资源ID
+   */
+  fun loadCrossFadeImage(
+    context: Context,
+    url: String,
+    imageView: ImageView,
+    holderResource: Int
+  ) {
+    GlideImageLoader.loadCrossFadeImage(context, url, imageView, holderResource)
+  }
+
+  /**
+   * 简单图片加载
    *
    * @param context        上下文
    * @param url            图片地址
@@ -43,7 +60,7 @@ object PicLoader {
   }
 
   /**
-   * 图片加载。
+   * 简单图片加载
    *
    * @param context        上下文
    * @param url            图片地址
@@ -103,7 +120,7 @@ object PicLoader {
   }
 
   /**
-   * 加载默认模糊度为自定义的高斯模糊图
+   * 加载默认模糊度为50的高斯模糊图
    *
    * @param context 上下文
    * @param url 图片地址
@@ -115,6 +132,40 @@ object PicLoader {
     imageView: ImageView
   ) {
     GlideImageLoader.loadRenderScriptImage(context, url, imageView, 50)
+  }
+
+  /**
+   * 加载默认模糊度为自定义的高斯模糊图
+   *
+   * @param context 上下文
+   * @param url 图片地址
+   * @param imageView 图片显示view
+   * @param ambiguity 模糊度
+   */
+  fun loadImageBlur(
+    context: Context?,
+    url: Int,
+    imageView: ImageView,
+    ambiguity: Int
+  ) {
+    GlideImageLoader.loadRenderScriptImage(context, url, imageView, ambiguity)
+  }
+
+  /**
+   * 加载默认模糊度为自定义的高斯模糊图
+   *
+   * @param context 上下文
+   * @param url 图片地址
+   * @param imageView 图片显示view
+   * @param ambiguity 模糊度
+   */
+  fun loadImageBlur(
+    context: Context?,
+    url: String,
+    imageView: ImageView,
+    ambiguity: Int
+  ) {
+    GlideImageLoader.loadRenderScriptImage(context, url, imageView, ambiguity)
   }
 
   /**
