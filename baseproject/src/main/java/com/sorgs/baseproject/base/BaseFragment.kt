@@ -23,7 +23,7 @@ abstract class BaseFragment : Fragment() {
   /**
    * Tag
    */
-  protected var TAG = javaClass.simpleName
+  open var TAG = javaClass.simpleName
   /**
    * 上下文
    */
@@ -74,7 +74,7 @@ abstract class BaseFragment : Fragment() {
     initListener()
   }
 
-  protected fun initView() {
+  protected open fun initView() {
     if (mProgressView == null) {
       val rootView = mActivity!!.window.decorView as ViewGroup
       mProgressView =
@@ -125,11 +125,11 @@ abstract class BaseFragment : Fragment() {
   /**
    * 数据初始化操作
    */
-  protected fun initData() {
+  protected open fun initData() {
 
   }
 
-  protected fun initListener() {
+  protected open fun initListener() {
 
   }
 
@@ -149,16 +149,16 @@ abstract class BaseFragment : Fragment() {
       mProgressView!!.visibility = if (show) View.VISIBLE else View.GONE
       mLoadingView!!.visibility = if (show) View.VISIBLE else View.GONE
       mProgressView!!.animate()
-          .setDuration(shortAnimTime.toLong())
-          .alpha(
-              (if (show) 1 else 0).toFloat()
-          )
-          .setListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-              mProgressView!!.visibility = if (show) View.VISIBLE else View.GONE
-              mLoadingView!!.visibility = if (show) View.VISIBLE else View.GONE
-            }
-          })
+        .setDuration(shortAnimTime.toLong())
+        .alpha(
+          (if (show) 1 else 0).toFloat()
+        )
+        .setListener(object : AnimatorListenerAdapter() {
+          override fun onAnimationEnd(animation: Animator) {
+            mProgressView!!.visibility = if (show) View.VISIBLE else View.GONE
+            mLoadingView!!.visibility = if (show) View.VISIBLE else View.GONE
+          }
+        })
 
     }
   }

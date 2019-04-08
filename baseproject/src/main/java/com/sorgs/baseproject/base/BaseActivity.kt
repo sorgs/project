@@ -21,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
   /**
    * Tag
    */
-  protected var TAG = javaClass.simpleName
+  open var TAG = javaClass.simpleName
   /**
    * 上下文
    */
@@ -57,7 +57,7 @@ abstract class BaseActivity : AppCompatActivity() {
    */
   protected abstract fun initLayoutId(): Int
 
-  protected fun initView() {
+  protected open fun initView() {
     if (mProgressView == null) {
       val rootView = window.decorView as ViewGroup
       mProgressView = layoutInflater.inflate(R.layout.loading_layout, rootView, false)
@@ -67,11 +67,11 @@ abstract class BaseActivity : AppCompatActivity() {
     }
   }
 
-  protected fun initData() {
+  protected open fun initData() {
 
   }
 
-  protected fun initListener() {
+  protected open fun initListener() {
 
   }
 
@@ -86,16 +86,16 @@ abstract class BaseActivity : AppCompatActivity() {
       mProgressView!!.visibility = if (show) View.VISIBLE else View.GONE
       mLoadingView!!.visibility = if (show) View.VISIBLE else View.GONE
       mProgressView!!.animate()
-          .setDuration(shortAnimTime.toLong())
-          .alpha(
-              (if (show) 1 else 0).toFloat()
-          )
-          .setListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-              mProgressView!!.visibility = if (show) View.VISIBLE else View.GONE
-              mLoadingView!!.visibility = if (show) View.VISIBLE else View.GONE
-            }
-          })
+        .setDuration(shortAnimTime.toLong())
+        .alpha(
+          (if (show) 1 else 0).toFloat()
+        )
+        .setListener(object : AnimatorListenerAdapter() {
+          override fun onAnimationEnd(animation: Animator) {
+            mProgressView!!.visibility = if (show) View.VISIBLE else View.GONE
+            mLoadingView!!.visibility = if (show) View.VISIBLE else View.GONE
+          }
+        })
 
     }
   }
