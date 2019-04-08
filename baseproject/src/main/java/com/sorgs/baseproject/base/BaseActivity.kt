@@ -21,16 +21,16 @@ abstract class BaseActivity : AppCompatActivity() {
   /**
    * Tag
    */
-  open var TAG = javaClass.simpleName
+  protected open var TAG = javaClass.simpleName
   /**
    * 上下文
    */
-  protected lateinit var mContext: Context
-  protected lateinit var mEmptyView: View
+  protected open lateinit var mContext: Context
+  protected open lateinit var mEmptyView: View
   /**
    * 展示错误布局，是否可以点击重试
    */
-  protected var mCanRetry: Boolean = false
+  protected open var mCanRetry: Boolean = false
   private var mProgressView: View? = null
   private var mLoadingView: View? = null
 

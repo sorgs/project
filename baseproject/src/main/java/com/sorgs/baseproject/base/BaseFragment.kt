@@ -23,32 +23,32 @@ abstract class BaseFragment : Fragment() {
   /**
    * Tag
    */
-  open var TAG = javaClass.simpleName
+  protected open var TAG = javaClass.simpleName
   /**
    * 上下文
    */
-  protected var mContext: Context? = null
-  protected var mActivity: Activity? = null
-  protected lateinit var mEmptyView: View
+  protected open var mContext: Context? = null
+  protected open var mActivity: Activity? = null
+  protected open lateinit var mEmptyView: View
   /**
    * 展示错误布局，是否可以点击重试
    */
-  protected var mCanRetry: Boolean = false
+  protected open var mCanRetry: Boolean = false
   private var mProgressView: View? = null
   private var mLoadingView: View? = null
 
   /**
    * 是否初始化过布局
    */
-  protected var mIsViewInitiated: Boolean = false
+  protected open var mIsViewInitiated: Boolean = false
   /**
    * 当前界面是否可见
    */
-  protected var mIsVisibleToUser: Boolean = false
+  protected open var mIsVisibleToUser: Boolean = false
   /**
    * 是否加载过数据
    */
-  protected var mIsDataInitiated: Boolean = false
+  protected open var mIsDataInitiated: Boolean = false
 
   override fun onAttach(context: Context?) {
     super.onAttach(context)
