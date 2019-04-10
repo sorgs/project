@@ -10,15 +10,15 @@ import android.content.Context
  * @author Sorgs.
  * Created date: 2018/12/31.
  */
-class GlobalApplication : Application() {
+open class GlobalApplication : Application() {
 
-  override fun onCreate() {
-    super.onCreate()
-    mContext = this
-  }
+    override fun onCreate() {
+        super.onCreate()
+        mContext = this
+    }
 
-  companion object {
-    @SuppressLint("StaticFieldLeak")
-    lateinit var mContext: Context
-  }
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        lateinit var mContext: Context
+    }
 }

@@ -7,11 +7,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
-  <ProgressBar
-      android:id="@+id/loading_view"
-      android:layout_width="60dp"
-      android:layout_height="60dp"
-      android:layout_marginBottom="8dp"
-      style="?android:attr/progressBarStyleLarge"/>
+    <ProgressBar
+        android:id="@+id/loading_view"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="8dp" />
 
 </LinearLayout>
