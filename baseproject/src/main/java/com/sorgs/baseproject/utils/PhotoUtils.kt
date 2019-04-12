@@ -60,7 +60,7 @@ object PhotoUtils {
                             onNext?.call(uri)
                         }
                         permission.shouldShowRequestPermissionRationale -> // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-                            ToastUtils.showShort(R.string.toast_no_permission)
+                            ToastUtils.showShort(R.string.project_no_permission)
                         else -> // 用户拒绝了该权限，并且选中『不再询问』
                             NeverAskAgainDialog.goToSettingDialog(baseActivity)
                     }
@@ -84,7 +84,7 @@ object PhotoUtils {
                     onNext?.call(uri)
                 } else if (permission.shouldShowRequestPermissionRationale) {
                     // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-                    ToastUtils.showShort(R.string.toast_no_permission)
+                    ToastUtils.showShort(R.string.project_no_permission)
                 } else {
                     // 用户拒绝了该权限，并且选中『不再询问』
                     NeverAskAgainDialog.goToSettingDialog(baseActivity!!)
@@ -185,7 +185,7 @@ object PhotoUtils {
                         photo(rxPermissions, fragment, onNext)
                     } else if (permission.shouldShowRequestPermissionRationale) {
                         // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-                        ToastUtils.showShort(R.string.toast_no_permission)
+                        ToastUtils.showShort(R.string.project_no_permission)
                     } else {
                         // 用户拒绝了该权限，并且选中『不再询问』
                         NeverAskAgainDialog.goToSettingDialog(fragment.activity!!)
@@ -207,7 +207,7 @@ object PhotoUtils {
                         val uri = goCamera(fragment)
                         onNext?.call(uri)
                     } else {
-                        ToastUtils.showShort(R.string.toast_no_permission)
+                        ToastUtils.showShort(R.string.project_no_permission)
                     }
                 }
         }
@@ -317,7 +317,7 @@ object PhotoUtils {
                         }
                     } else if (permission.shouldShowRequestPermissionRationale) {
                         // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-                        ToastUtils.showShort(R.string.toast_no_permission)
+                        ToastUtils.showShort(R.string.project_no_permission)
                     } else {
                         // 用户拒绝了该权限，并且选中『不再询问』
                         NeverAskAgainDialog.goToSettingDialog(baseActivity)
@@ -360,7 +360,7 @@ object PhotoUtils {
                         }
                     } else if (permission.shouldShowRequestPermissionRationale) {
                         // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-                        ToastUtils.showShort(R.string.toast_no_permission)
+                        ToastUtils.showShort(R.string.project_no_permission)
                     } else {
                         // 用户拒绝了该权限，并且选中『不再询问』
                         NeverAskAgainDialog.goToSettingDialog(baseFragment.activity!!)
