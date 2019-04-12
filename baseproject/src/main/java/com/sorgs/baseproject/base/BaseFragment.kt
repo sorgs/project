@@ -2,7 +2,6 @@ package com.sorgs.baseproject.base
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -63,6 +62,10 @@ abstract class BaseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView(savedInstanceState)
+    }
+
+    override fun onStart() {
+        super.onStart()
         initData()
         initListener()
     }
@@ -172,7 +175,6 @@ abstract class BaseFragment : Fragment() {
      * 初始化空布局
      * 并非所有都需要
      */
-    @SuppressLint("InflateParams")
     protected fun initEmpty(layoutId: Int) {
         if (layoutId == 0) {
             LogUtils.e(TAG, "layoutId is null")

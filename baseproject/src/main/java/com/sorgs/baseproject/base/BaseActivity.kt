@@ -34,7 +34,6 @@ abstract class BaseActivity : AppCompatActivity() {
     private var mProgressView: View? = null
     private var mLoadingView: View? = null
 
-    @SuppressLint("InlinedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val layoutResID = initLayoutId()
@@ -43,9 +42,13 @@ abstract class BaseActivity : AppCompatActivity() {
             setContentView(layoutResID)
         }
         //修改标题栏颜色为暗色主题颜色（黑色）
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        //window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         mContext = this
         initView(savedInstanceState)
+    }
+
+    override fun onStart() {
+        super.onStart()
         initData()
         initListener()
     }

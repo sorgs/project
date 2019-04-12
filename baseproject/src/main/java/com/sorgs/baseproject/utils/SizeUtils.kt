@@ -1,30 +1,21 @@
 package com.sorgs.baseproject.utils
 
-import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.ActivityGroup
-import android.content.Context
-import android.os.Build
-import android.support.v7.app.AppCompatActivity
-import android.util.Log
+import android.content.res.Resources
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
-import com.sorgs.baseproject.base.GlobalApplication
 
 /**
- * <pre>
- * author: Blankj
- * blog  : http://blankj.com
- * time  : 2016/08/02
- * desc  : utils about size
-</pre> *
+ * description: xxx.
+ *
+ * @author Sorgs.
+ * Created date: 2019/4/12.
  */
 class SizeUtils private constructor() {
-
     init {
         throw UnsupportedOperationException("u can't instantiate me...")
     }
+
 
     interface onGetSizeListener {
         fun onGetSize(view: View)
@@ -39,7 +30,7 @@ class SizeUtils private constructor() {
          * @return value of px
          */
         fun dp2px(dpValue: Float): Int {
-            val scale = GlobalApplication.mContext.resources.displayMetrics.density
+            val scale = Resources.getSystem().displayMetrics.density
             return (dpValue * scale + 0.5f).toInt()
         }
 
@@ -50,7 +41,7 @@ class SizeUtils private constructor() {
          * @return value of dp
          */
         fun px2dp(pxValue: Float): Int {
-            val scale = GlobalApplication.mContext.resources.displayMetrics.density
+            val scale = Resources.getSystem().displayMetrics.density
             return (pxValue / scale + 0.5f).toInt()
         }
 
@@ -61,7 +52,7 @@ class SizeUtils private constructor() {
          * @return value of px
          */
         fun sp2px(spValue: Float): Int {
-            val fontScale = GlobalApplication.mContext.resources.displayMetrics.scaledDensity
+            val fontScale = Resources.getSystem().displayMetrics.scaledDensity
             return (spValue * fontScale + 0.5f).toInt()
         }
 
@@ -72,7 +63,7 @@ class SizeUtils private constructor() {
          * @return value of sp
          */
         fun px2sp(pxValue: Float): Int {
-            val fontScale = GlobalApplication.mContext.resources.displayMetrics.scaledDensity
+            val fontScale = Resources.getSystem().displayMetrics.scaledDensity
             return (pxValue / fontScale + 0.5f).toInt()
         }
 
@@ -86,11 +77,8 @@ class SizeUtils private constructor() {
          * @return The complex floating point value multiplied by the appropriate
          * metrics depending on its unit.
          */
-        fun applyDimension(
-            value: Float,
-            unit: Int
-        ): Float {
-            val metrics = GlobalApplication.mContext.resources.displayMetrics
+        fun applyDimension(value: Float, unit: Int): Float {
+            val metrics = Resources.getSystem().displayMetrics
             when (unit) {
                 TypedValue.COMPLEX_UNIT_PX -> return value
                 TypedValue.COMPLEX_UNIT_DIP -> return value * metrics.density
@@ -98,6 +86,8 @@ class SizeUtils private constructor() {
                 TypedValue.COMPLEX_UNIT_PT -> return value * metrics.xdpi * (1.0f / 72)
                 TypedValue.COMPLEX_UNIT_IN -> return value * metrics.xdpi
                 TypedValue.COMPLEX_UNIT_MM -> return value * metrics.xdpi * (1.0f / 25.4f)
+                else -> {
+                }
             }
             return 0f
         }
@@ -118,10 +108,7 @@ class SizeUtils private constructor() {
          * @param view     The view.
          * @param listener The get size listener.
          */
-        fun forceGetViewSize(
-            view: View,
-            listener: onGetSizeListener?
-        ) {
+        fun forceGetViewSize(view: View, listener: onGetSizeListener?) {
             view.post {
                 listener?.onGetSize(view)
             }
@@ -135,16 +122,6 @@ class SizeUtils private constructor() {
          */
         fun getMeasuredWidth(view: View): Int {
             return measureView(view)[0]
-        }
-
-        /**
-         * Return the height of view.
-         *
-         * @param view The view.
-         * @return the height of view
-         */
-        fun getMeasuredHeight(view: View): Int {
-            return measureView(view)[1]
         }
 
         /**
@@ -173,82 +150,14 @@ class SizeUtils private constructor() {
             return intArrayOf(view.measuredWidth, view.measuredHeight)
         }
 
-        @SuppressLint("PrivateApi")
-                /**
-                 * 获得状态栏的高度
-                 */
-        fun getStatusHeight(mContext: Context): Int {
-
-            var statusHeight = -1
-            try {
-                val clazz = Class.forName("com.android.internal.R\$dimen")
-                val `object` = clazz.newInstance()
-                val height = Integer.parseInt(
-                    clazz.getField("status_bar_height")
-                        .get(`object`).toString()
-                )
-                statusHeight = mContext.resources.getDimensionPixelSize(height)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-            return statusHeight
-        }
-
         /**
-         * 获取actionbar的像素高度，默认使用android官方兼容包做actionbar兼容
+         * Return the height of view.
+         *
+         * @param view The view.
+         * @return the height of view
          */
-        fun getActionBarHeight(mContext: Context): Int {
-            var actionBarHeight = 0
-            if (mContext is AppCompatActivity && mContext.supportActionBar != null) {
-                Log.d("isAppCompatActivity", "==AppCompatActivity")
-                actionBarHeight = mContext.supportActionBar!!.height
-            } else if (mContext is Activity && mContext.actionBar != null) {
-                Log.d("isActivity", "==Activity")
-                actionBarHeight = mContext.actionBar!!.height
-            } else if (mContext is ActivityGroup) {
-                Log.d("ActivityGroup", "==ActivityGroup")
-                if (mContext.currentActivity is AppCompatActivity && (mContext.currentActivity as AppCompatActivity).supportActionBar != null) {
-                    actionBarHeight = (mContext.currentActivity as AppCompatActivity).supportActionBar!!
-                        .height
-                } else if (mContext.currentActivity != null && (mContext.currentActivity as Activity).actionBar != null) {
-                    actionBarHeight = (mContext.currentActivity as Activity).actionBar!!.height
-                }
-            }
-            if (actionBarHeight != 0) {
-                return actionBarHeight
-            }
-            val tv = TypedValue()
-            if (mContext.theme
-                    .resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize, tv, true)
-            ) {
-                if (mContext.theme
-                        .resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize, tv, true)
-                ) {
-                    actionBarHeight = TypedValue.complexToDimensionPixelSize(
-                        tv.data,
-                        mContext.resources.displayMetrics
-                    )
-                }
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                if (mContext.theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-                    actionBarHeight = TypedValue.complexToDimensionPixelSize(
-                        tv.data,
-                        mContext.resources.displayMetrics
-                    )
-                }
-            } else {
-                if (mContext.theme
-                        .resolveAttribute(android.support.v7.appcompat.R.attr.actionBarSize, tv, true)
-                ) {
-                    actionBarHeight = TypedValue.complexToDimensionPixelSize(
-                        tv.data,
-                        mContext.resources.displayMetrics
-                    )
-                }
-            }
-            Log.d("actionBarHeight", "====$actionBarHeight")
-            return actionBarHeight
+        fun getMeasuredHeight(view: View): Int {
+            return measureView(view)[1]
         }
     }
 }

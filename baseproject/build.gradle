@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0.6"
+        versionCode 2
+        versionName "2.0"
     }
 
     compileOptions {
@@ -19,27 +19,31 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
 
-    api 'com.android.support:appcompat-v7:28.0.0'
+    compileOnly 'com.android.support:appcompat-v7:28.0.0'
 
     //权限申请
-    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+    compileOnly 'com.github.tbruyelle:rxpermissions:0.10.2'
     //glide
-    api 'com.github.bumptech.glide:glide:4.8.0'
+    compileOnly 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     //BaseRecyclerViewAdapterHelper
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.41'
+    compileOnly 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.41'
     //Gson
-    api 'com.google.code.gson:gson:2.8.5'
+    compileOnly 'com.google.code.gson:gson:2.8.5'
     //屏幕适配
-    api 'me.jessyan:autosize:1.0.5'
+    compileOnly 'me.jessyan:autosize:1.1.2'
     //rxpermissions2必须依赖
-    api 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    api 'io.reactivex.rxjava2:rxjava:2.2.2'
+    compileOnly 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    compileOnly 'io.reactivex.rxjava2:rxjava:2.2.2'
     //RxJava
-    api 'com.jakewharton.rxbinding:rxbinding:1.0.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly 'com.jakewharton.rxbinding:rxbinding:1.0.0'
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //butterknife
+    compileOnly 'com.jakewharton:butterknife:9.0.0-rc3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc3'
 }
 repositories {
     mavenCentral()

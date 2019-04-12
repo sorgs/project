@@ -1,13 +1,31 @@
 package com.sorgs.app;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+import com.sorgs.baseproject.base.JavaBaseActivity;
+
+/**
+ * @author sorgs.li
+ */
+public class MainActivity extends JavaBaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int initLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void initView(Bundle savedInstanceState) {
+        super.initView(savedInstanceState);
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+    }
+
+    @Override
+    protected void initListener() {
+        super.initListener();
     }
 }
