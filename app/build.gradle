@@ -73,7 +73,7 @@ dependencies {
     implementation files('libs/baseproject-release.aar')
 
     //debugImplementation project(':baseproject') //debug 版本直接引用本地项目
-    releaseImplementation 'com.github.sorgs:project:v1.7'   //release 版本引用远程版本用来最终测试发现问题
+    releaseImplementation 'com.github.sorgs:project:v2.1'   //release 版本引用远程版本用来最终测试发现问题
     //butterknife
     implementation 'com.jakewharton:butterknife:9.0.0-rc3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc3'
