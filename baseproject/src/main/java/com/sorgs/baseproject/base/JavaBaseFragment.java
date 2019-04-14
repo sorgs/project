@@ -62,12 +62,12 @@ public abstract class JavaBaseFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mUnBinder = ButterKnife.bind(this, view);
-        initView();
+        initView(savedInstanceState);
         initData();
         initListener();
     }
 
-    protected void initView() {
+    protected void initView(@Nullable Bundle savedInstanceState) {
         if (mProgressView == null) {
             ViewGroup rootView = (ViewGroup) mActivity.getWindow().getDecorView();
             mProgressView = getLayoutInflater().inflate(R.layout.loading_layout, rootView, false);

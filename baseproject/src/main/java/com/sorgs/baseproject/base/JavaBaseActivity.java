@@ -54,7 +54,7 @@ public abstract class JavaBaseActivity extends AppCompatActivity {
         //修改标题栏颜色为暗色主题颜色（黑色）
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         mContext = this;
-        initView();
+        initView(savedInstanceState);
         initData();
         initListener();
     }
@@ -66,7 +66,7 @@ public abstract class JavaBaseActivity extends AppCompatActivity {
      */
     protected abstract int initLayoutId();
 
-    protected void initView() {
+    protected void initView(@Nullable Bundle savedInstanceState) {
         if (mProgressView == null) {
             ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
             mProgressView = getLayoutInflater().inflate(R.layout.loading_layout, rootView, false);
