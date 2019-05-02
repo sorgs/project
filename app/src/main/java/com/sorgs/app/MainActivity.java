@@ -12,4 +12,9 @@ public class MainActivity extends JavaBaseActivity {
     protected int initLayoutId() {
         return R.layout.activity_main;
     }
+
+    @Override
+    protected void initData() {
+        super.initData();
+    }
 }
