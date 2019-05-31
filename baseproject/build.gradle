@@ -69,7 +69,7 @@ dependencies {
     //BaseRecyclerViewAdapterHelper
     //compileOnly 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.41'
     //Gson
-    //compileOnly 'com.google.code.gson:gson:2.8.5'
+    compileOnly 'com.google.code.gson:gson:2.8.5'
     //屏幕适配
     //compileOnly 'me.jessyan:autosize:1.1.2'
     //rxpermissions2必须依赖
