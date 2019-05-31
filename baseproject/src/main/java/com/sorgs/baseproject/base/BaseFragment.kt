@@ -29,10 +29,6 @@ abstract class BaseFragment : Fragment() {
     protected open var mContext: Context? = null
     protected open var mActivity: Activity? = null
     protected open lateinit var mEmptyView: View
-    /**
-     * 展示错误布局，是否可以点击重试
-     */
-    protected open var mCanRetry: Boolean = false
     private var mProgressView: View? = null
     private var mLoadingView: View? = null
 
@@ -59,16 +55,6 @@ abstract class BaseFragment : Fragment() {
         return inflater.inflate(initLayoutId(), null)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initView(savedInstanceState)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        initData()
-        initListener()
-    }
 
     protected open fun initView(savedInstanceState: Bundle?) {
         if (mProgressView == null) {
@@ -79,14 +65,12 @@ abstract class BaseFragment : Fragment() {
             setProgressVisible(false)
             rootView.addView(mProgressView)
         }
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        initView(savedInstanceState)
         mIsViewInitiated = true
-        //加载数据
-        prepareFetchData()
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
@@ -102,18 +86,10 @@ abstract class BaseFragment : Fragment() {
      * 更新数据
      *
      */
-    fun prepareFetchData() {
-        prepareFetchData(false)
-    }
-
-    /**
-     * 判断懒加载条件
-     *
-     * @param forceUpdate 强制更新
-     */
-    fun prepareFetchData(forceUpdate: Boolean) {
-        if (mIsVisibleToUser && mIsViewInitiated && (!mIsDataInitiated || forceUpdate)) {
-            loadData()
+    private fun prepareFetchData() {
+        if (mIsVisibleToUser && mIsViewInitiated && !mIsDataInitiated) {
+            initData()
+            initListener()
             mIsDataInitiated = true
         }
     }
@@ -128,11 +104,6 @@ abstract class BaseFragment : Fragment() {
     protected open fun initListener() {
 
     }
-
-    /**
-     * 懒加载数据，需要懒加载的数据在这里完成
-     */
-    protected abstract fun loadData()
 
     /**
      * 是否展示loading
