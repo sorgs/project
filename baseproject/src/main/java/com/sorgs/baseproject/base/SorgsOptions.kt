@@ -10,15 +10,13 @@ import android.content.Context
  * @author Sorgs.
  * Created date: 2018/12/31.
  */
-open class GlobalApplication : Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-        mContext = this
-    }
-
+open class SorgsOptions {
     companion object {
         @SuppressLint("StaticFieldLeak")
         lateinit var mContext: Context
+
+        fun init(application: Application) {
+            mContext = application
+        }
     }
 }

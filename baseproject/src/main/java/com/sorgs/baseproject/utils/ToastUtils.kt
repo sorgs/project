@@ -3,7 +3,7 @@ package com.sorgs.baseproject.utils
 import android.annotation.SuppressLint
 import android.support.annotation.StringRes
 import android.widget.Toast
-import com.sorgs.baseproject.base.GlobalApplication
+import com.sorgs.baseproject.base.SorgsOptions
 
 /**
  * description: Toast工具.
@@ -14,7 +14,7 @@ import com.sorgs.baseproject.base.GlobalApplication
 object ToastUtils {
 
   private var mToast: Toast? = null
-  private val mContext = GlobalApplication.mContext
+  private val mContext = SorgsOptions.mContext
 
   /* public static void initToastUtils(Context context) {
     mContext = context;

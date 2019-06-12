@@ -12,7 +12,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import com.sorgs.baseproject.base.GlobalApplication
+import com.sorgs.baseproject.base.SorgsOptions
 
 class KeyboardUtils private constructor() {
 
@@ -54,7 +54,7 @@ class KeyboardUtils private constructor() {
          * @param view The view.
          */
         fun showSoftInput(view: View) {
-            val imm = GlobalApplication.mContext
+            val imm = SorgsOptions.mContext
                 .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             view.isFocusable = true
             view.isFocusableInTouchMode = true
@@ -86,7 +86,7 @@ class KeyboardUtils private constructor() {
          * @param view The view.
          */
         fun hideSoftInput(view: View) {
-            val imm = GlobalApplication.mContext
+            val imm = SorgsOptions.mContext
                 .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
@@ -95,7 +95,7 @@ class KeyboardUtils private constructor() {
          * Toggle the soft input display or not.
          */
         fun toggleSoftInput() {
-            val imm = GlobalApplication.mContext
+            val imm = SorgsOptions.mContext
                 .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
         }
@@ -175,7 +175,7 @@ class KeyboardUtils private constructor() {
             if (mContext == null) {
                 return
             }
-            val imm = GlobalApplication.mContext
+            val imm = SorgsOptions.mContext
                 .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             val strArr = arrayOf("mCurRootView", "mServedView", "mNextServedView")
             for (i in 0..2) {

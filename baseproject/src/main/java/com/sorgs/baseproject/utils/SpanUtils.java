@@ -49,7 +49,7 @@ import android.text.style.UnderlineSpan;
 import android.text.style.UpdateAppearance;
 import android.util.Log;
 
-import com.sorgs.baseproject.base.GlobalApplication;
+import com.sorgs.baseproject.base.SorgsOptions;
 
 import java.io.InputStream;
 import java.lang.annotation.Retention;
@@ -1142,7 +1142,7 @@ public final class SpanUtils {
 
         private CustomImageSpan(final Bitmap b, final int verticalAlignment) {
             super(verticalAlignment);
-            mDrawable = new BitmapDrawable(GlobalApplication.mContext.getResources(), b);
+            mDrawable = new BitmapDrawable(SorgsOptions.mContext.getResources(), b);
             mDrawable.setBounds(
                     0, 0, mDrawable.getIntrinsicWidth(), mDrawable.getIntrinsicHeight()
             );
@@ -1175,11 +1175,11 @@ public final class SpanUtils {
                 Bitmap bitmap;
                 try {
                     InputStream is =
-                            GlobalApplication.mContext.getContentResolver()
-                                                      .openInputStream(mContentUri);
+                            SorgsOptions.mContext.getContentResolver()
+                                                 .openInputStream(mContentUri);
                     bitmap = BitmapFactory.decodeStream(is);
                     drawable =
-                            new BitmapDrawable(GlobalApplication.mContext.getResources(), bitmap);
+                            new BitmapDrawable(SorgsOptions.mContext.getResources(), bitmap);
                     drawable.setBounds(
                             0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()
                     );
@@ -1192,7 +1192,7 @@ public final class SpanUtils {
             } else {
                 try {
                     drawable =
-                            ContextCompat.getDrawable(GlobalApplication.mContext, mResourceId);
+                            ContextCompat.getDrawable(SorgsOptions.mContext, mResourceId);
                     drawable.setBounds(
                             0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()
                     );

@@ -2,7 +2,7 @@ package com.sorgs.baseproject.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.sorgs.baseproject.base.GlobalApplication
+import com.sorgs.baseproject.base.SorgsOptions
 
 /**
  * 用户缓存
@@ -15,7 +15,7 @@ import com.sorgs.baseproject.base.GlobalApplication
 
 class SharedPreferencesUtils private constructor() {
     private val sharedPreferences: SharedPreferences =
-        GlobalApplication.mContext.getSharedPreferences("cache", Context.MODE_PRIVATE)
+        SorgsOptions.mContext.getSharedPreferences("cache", Context.MODE_PRIVATE)
 
     /**
      * 写入String变量到sharedPreferences中
