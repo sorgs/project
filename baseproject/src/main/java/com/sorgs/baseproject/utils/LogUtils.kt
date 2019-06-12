@@ -9,8 +9,8 @@ import android.util.Log
  */
 object LogUtils {
 
-  fun setLogSwitch(swithc: Boolean) {
-    LOG_ENABLE = swithc
+    fun setLogSwitch(switch: Boolean) {
+        LOG_ENABLE = switch
   }
 
   /**
