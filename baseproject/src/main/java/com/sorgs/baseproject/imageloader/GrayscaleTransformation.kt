@@ -1,4 +1,4 @@
-package com.sorgs.baseproject.utils.imageloader
+package com.sorgs.baseproject.imageloader
 
 import android.content.Context
 import android.graphics.*
