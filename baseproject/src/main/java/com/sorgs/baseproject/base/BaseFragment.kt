@@ -36,14 +36,6 @@ abstract class BaseFragment : Fragment() {
      * 是否初始化过布局
      */
     protected open var mIsViewInitiated: Boolean = false
-    /**
-     * 当前界面是否可见
-     */
-    protected open var mIsVisibleToUser: Boolean = false
-    /**
-     * 是否加载过数据
-     */
-    protected open var mIsDataInitiated: Boolean = false
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
@@ -51,16 +43,25 @@ abstract class BaseFragment : Fragment() {
         mActivity = activity
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(initLayoutId(), null)
     }
 
 
     protected open fun initView(savedInstanceState: Bundle?) {
+        LogUtils.i("initView")
         if (mProgressView == null) {
             val rootView = mActivity!!.window.decorView as ViewGroup
             mProgressView =
-                layoutInflater.inflate(com.sorgs.baseproject.R.layout.loading_layout, rootView, false)
+                layoutInflater.inflate(
+                    com.sorgs.baseproject.R.layout.loading_layout,
+                    rootView,
+                    false
+                )
             mLoadingView = mProgressView!!.findViewById(com.sorgs.baseproject.R.id.loading_view)
             setProgressVisible(false)
             rootView.addView(mProgressView)
@@ -71,28 +72,10 @@ abstract class BaseFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         initView(savedInstanceState)
         mIsViewInitiated = true
+        initData()
+        initListener()
     }
 
-    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
-        super.setUserVisibleHint(isVisibleToUser)
-        //fragment 是否展示出来
-        mIsVisibleToUser = isVisibleToUser && isResumed
-        if (isVisibleToUser) {
-            prepareFetchData()
-        }
-    }
-
-    /**
-     * 更新数据
-     *
-     */
-    private fun prepareFetchData() {
-        if (mIsVisibleToUser && mIsViewInitiated && !mIsDataInitiated) {
-            initData()
-            initListener()
-            mIsDataInitiated = true
-        }
-    }
 
     /**
      * 数据初始化操作
