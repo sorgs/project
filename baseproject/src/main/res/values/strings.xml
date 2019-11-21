@@ -1,4 +1,8 @@
 <resources>
     <!--Toast-->
     <string name="project_no_permission">请同意权限之后再试！</string>
+
+    <string name="info_net_error_retry">网络异常，点击屏幕重试</string>
+    <string name="info_no_data">暂无内容</string>
+    <string name="info_net_error">似乎已断开网络连接</string>
 </resources>

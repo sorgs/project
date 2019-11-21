@@ -29,6 +29,17 @@ object SizeUtils {
     }
 
     /**
+     * Value of dp to value of px.
+     *
+     * @param dpValue The value of dp.
+     * @return value of px
+     */
+    fun dp2px(dpValue: Int): Int {
+        val scale = Resources.getSystem().displayMetrics.density
+        return (dpValue * scale + 0.5f).toInt()
+    }
+
+    /**
      * Value of px to value of dp.
      *
      * @param pxValue The value of px.

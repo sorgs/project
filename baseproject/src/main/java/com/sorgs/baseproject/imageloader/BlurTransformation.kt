@@ -15,7 +15,7 @@ import java.security.MessageDigest
 /**
  * description :高斯模糊的转换类
  *
- * @author : YangYang
+ * @author : Sorgs
  * @date : 2018/6/8 18:06
  */
 class BlurTransformation(private var radius: Int) : BitmapTransformation() {

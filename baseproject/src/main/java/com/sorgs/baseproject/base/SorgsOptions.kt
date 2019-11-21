@@ -1,8 +1,8 @@
 package com.sorgs.baseproject.base
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
+import com.sorgs.baseproject.utils.BarUtils
 
 /**
  * description: appliction.
@@ -15,8 +15,14 @@ open class SorgsOptions {
         @SuppressLint("StaticFieldLeak")
         lateinit var mContext: Context
 
-        fun init(application: Application) {
-            mContext = application
+        /**
+         * 状态栏高度
+         */
+        var mStatusHeight: Int = 0
+
+        fun init(context: Context) {
+            mContext = context
+            mStatusHeight = BarUtils.getStatusBarHeight()
         }
     }
 }

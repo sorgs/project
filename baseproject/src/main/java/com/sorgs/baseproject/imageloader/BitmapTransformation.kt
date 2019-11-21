@@ -16,7 +16,7 @@ import java.security.MessageDigest
 /**
  * description : Glide获取Bitmap进行处理的基础类
  *
- * @author : YangYang
+ * @author : Sorgs
  * @date : 2018/6/8 16:32
  */
 abstract class BitmapTransformation : Transformation<Bitmap> {

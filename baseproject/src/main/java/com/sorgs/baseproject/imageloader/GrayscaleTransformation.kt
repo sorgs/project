@@ -9,7 +9,7 @@ import java.security.MessageDigest
 /**
  * description : Glide获取灰度图片的处理类
  *
- * @author : YangYang
+ * @author : Sorgs
  * @date : 2018/6/8 16:32
  */
 class GrayscaleTransformation : BitmapTransformation() {
