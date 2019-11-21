@@ -13,7 +13,7 @@ import com.sorgs.baseproject.utils.BarUtils
 open class SorgsOptions {
     companion object {
         @SuppressLint("StaticFieldLeak")
-        lateinit var mApplication: Application
+        lateinit var mContext: Application
 
         /**
          * 状态栏高度
@@ -21,7 +21,7 @@ open class SorgsOptions {
         var mStatusHeight: Int = 0
 
         fun init(application: Application) {
-            mApplication = application
+            mContext = application
             mStatusHeight = BarUtils.getStatusBarHeight()
         }
     }
