@@ -9,40 +9,20 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 3
-        versionName "3.1"
+        versionName "3.2"
         //proguard文件打包进aar中
         consumerProguardFiles 'proguard-rules.pro'
     }
 
-    signingConfigs {
-        release {
-            storeFile file("../Sorgs.jks")
-            storePassword '123456'
-            keyAlias 'android'
-            keyPassword '123456'
-        }
-        debug {
-            storeFile file("../Sorgs.jks")
-            storePassword '123456'
-            keyAlias 'android'
-            keyPassword '123456'
-        }
-    }
     buildTypes {
         release {
             //Zipalign优化
             zipAlignEnabled true
             //去除无用资源
             shrinkResources false
-            //签名
-            signingConfig signingConfigs.release
             //混淆
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            //签名
-            signingConfig signingConfigs.release
         }
     }
     compileOptions {

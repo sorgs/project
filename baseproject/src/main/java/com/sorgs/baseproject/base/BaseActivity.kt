@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import com.sorgs.baseproject.R
 import com.sorgs.baseproject.utils.*
+import com.sorgs.baseproject.widget.LoadingDialog
 import com.sorgs.baseproject.widget.MultiStatusLayout
 
 /**
@@ -63,7 +64,12 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * 多状态布局
      */
-    protected open var statusLayout: MultiStatusLayout? = null
+    protected open var mStatusLayout: MultiStatusLayout? = null
+
+    /**
+     * 非全屏loading
+     */
+    private var mLoadingDialog: LoadingDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initDefaultData()
@@ -72,12 +78,12 @@ abstract class BaseActivity : AppCompatActivity() {
         val layoutResID = initLayoutId()
         //如果initView返回0,则不会调用setContentView()
         if (isNeedMultiStatusLayout()) {
-            statusLayout = MultiStatusLayout(this)
+            mStatusLayout = MultiStatusLayout(this)
             //可以进行一些MultiStatusLayout的配置
-            statusLayout?.setContent(layoutResID)
-            statusLayout?.setStaticTop(staticTopViewId())
-            rootView = statusLayout
-            statusLayout?.showContent()
+            mStatusLayout?.setContent(layoutResID)
+            mStatusLayout?.setStaticTop(staticTopViewId())
+            rootView = mStatusLayout
+            mStatusLayout?.showContent()
         } else {
             rootView = layoutInflater.inflate(layoutResID, null)
         }
@@ -131,7 +137,7 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * 是否需要显示状态栏
      *
-     * @return true显示白色状态栏，false不显示状态栏
+     * @return true显示状态栏，false不显示状态栏
      */
     protected open fun isNeedShowStatusBar(): Boolean = false
 
@@ -142,7 +148,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     /**
-     * 标题栏高度(如果不需要状态栏黑色需要重写statusBarColor()方法)
+     * 标题栏高度(如果不需要状态栏需要重写statusBarColor()方法)
      *
      * @return 返回标题栏的高度
      */
@@ -176,7 +182,16 @@ abstract class BaseActivity : AppCompatActivity() {
             setProgressVisible(false)
             rootView.addView(mProgressView)
         }
+        if (isNeelLoadingDialog()) {
+            mLoadingDialog = LoadingDialog(mContext)
+        }
     }
+
+    /**
+     * 是否需要LoadingDialog,默认不需要
+     */
+    protected open fun isNeelLoadingDialog(): Boolean = false
+
 
     protected open fun initData() {
 
@@ -221,7 +236,23 @@ abstract class BaseActivity : AppCompatActivity() {
         if (!TextUtils.isEmpty(loadMessage)) {
             ToastUtils.showShort(loadMessage!!)
         }
-        statusLayout?.showLoading()
+        mStatusLayout?.showLoading()
+    }
+
+    /**
+     * 显示LoadingDialog
+     */
+    open fun showLoadingDialog() {
+        if (!mLoadingDialog?.isShowing!!) {
+            mLoadingDialog?.show()
+        }
+    }
+
+    /**
+     * 隐藏LoadingDialog
+     */
+    open fun dismissLoadingDialog() {
+        mLoadingDialog?.dismiss()
     }
 
     /**
@@ -234,7 +265,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (loadMessage != 0) {
             ToastUtils.showShort(loadMessage!!)
         }
-        statusLayout?.showLoading()
+        mStatusLayout?.showLoading()
     }
 
     /**
@@ -242,7 +273,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * 需要多状态布局
      */
     open fun hideLoading() {
-        statusLayout?.hideLoading()
+        mStatusLayout?.hideLoading()
     }
 
     /**
@@ -250,7 +281,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * 需要多状态布局
      */
     open fun showContent() {
-        statusLayout?.showContent()
+        mStatusLayout?.showContent()
     }
 
     /**
@@ -264,8 +295,8 @@ abstract class BaseActivity : AppCompatActivity() {
         if (!TextUtils.isEmpty(message)) {
             ToastUtils.showShort(message!!)
         }
-        statusLayout?.setRetryCallBack(retryCallBack)
-        statusLayout?.showError()
+        mStatusLayout?.setRetryCallBack(retryCallBack)
+        mStatusLayout?.showError()
     }
 
     /**
@@ -279,8 +310,8 @@ abstract class BaseActivity : AppCompatActivity() {
         if (message != 0) {
             ToastUtils.showShort(message!!)
         }
-        statusLayout?.setRetryCallBack(retryCallBack)
-        statusLayout?.showError()
+        mStatusLayout?.setRetryCallBack(retryCallBack)
+        mStatusLayout?.showError()
     }
 
     /**
@@ -288,7 +319,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * 需要多状态布局
      */
     open fun showEmpty() {
-        statusLayout?.showEmpty()
+        mStatusLayout?.showEmpty()
     }
 
 

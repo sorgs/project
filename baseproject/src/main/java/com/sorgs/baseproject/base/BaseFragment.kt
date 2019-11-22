@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import com.sorgs.baseproject.R
 import com.sorgs.baseproject.utils.*
+import com.sorgs.baseproject.widget.LoadingDialog
 import com.sorgs.baseproject.widget.MultiStatusLayout
 
 /**
@@ -63,6 +64,10 @@ abstract class BaseFragment : Fragment() {
      * 屏幕状态栏高度
      */
     open var mStatusBarHeight = 0
+    /**
+     * 非全屏loading
+     */
+    private var mLoadingDialog: LoadingDialog? = null
 
 
     override fun onAttach(context: Context) {
@@ -118,7 +123,15 @@ abstract class BaseFragment : Fragment() {
             setProgressVisible(false)
             rootView.addView(mProgressView)
         }
+        if (isNeelLoadingDialog()) {
+            mLoadingDialog = LoadingDialog(mContext)
+        }
     }
+
+    /**
+     * 是否需要LoadingDialog,默认不需要
+     */
+    protected open fun isNeelLoadingDialog(): Boolean = false
 
     /**
      * 懒加载
@@ -149,6 +162,7 @@ abstract class BaseFragment : Fragment() {
         lazyLoad()
     }
 
+
     /**
      * 是否需要多状态的View，如果不需要多状态的View可以减少层级
      *
@@ -160,7 +174,7 @@ abstract class BaseFragment : Fragment() {
     /**
      * 是否需要显示状态栏
      *
-     * @return true显示白色状态栏，false不显示状态栏
+     * @return true显示状态栏，false不显示状态栏
      */
     protected open fun isNeedShowStatusBar(): Boolean = false
 
@@ -199,6 +213,22 @@ abstract class BaseFragment : Fragment() {
         if (statusLayout != null) {
             statusLayout?.showLoading()
         }
+    }
+
+    /**
+     * 显示LoadingDialog
+     */
+    open fun showLoadingDialog() {
+        if (!mLoadingDialog?.isShowing!!) {
+            mLoadingDialog?.show()
+        }
+    }
+
+    /**
+     * 隐藏LoadingDialog
+     */
+    open fun dismissLoadingDialog() {
+        mLoadingDialog?.dismiss()
     }
 
     /**

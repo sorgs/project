@@ -16,12 +16,13 @@ import android.view.animation.LinearInterpolator;
  * description: 全屏loading动画 执行完一遍动画2秒。
  */
 public class LoadingView extends View {
+    private static String mBaseColor = "5955F4";
     //第一个圆(初始化大的那个)的颜色
-    private static int colorCircle1 = Color.parseColor("#3356c66b");//颜色：#56c66b,不透明度：20%
+    private int colorCircle1;
     //第二个圆(初始化小的那个)最小时的颜色
-    private static int colorCircle21 = Color.parseColor("#B356c66b");//颜色：#56c66b,不透明度：70%）
+    private int colorCircle21;
     //第二个圆(初始化小的那个)最大时的颜色
-    private static int colorCircle22 = Color.parseColor("#6B56c66b");//颜色：#56c66b,不透明度42%
+    private int colorCircle22;
     //宽度
     private int width;
     //高度
@@ -48,15 +49,11 @@ public class LoadingView extends View {
         init(context);
     }
 
-    //初始化
-    private void init(Context context) {
-        paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.FILL);
-        maxRadius = dp2px(context, 23 / 2f);
-        minRadius = dp2px(context, 4 / 2f);
-        radiusCircle1 = maxRadius;
-        radiusCircle2 = minRadius;
+    /**
+     * @param baseColor 设置基础颜色
+     */
+    public static void setBaseColor(String baseColor) {
+        mBaseColor = baseColor;
     }
 
     //dp转px
@@ -73,6 +70,23 @@ public class LoadingView extends View {
     public LoadingView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
+    }
+
+    //初始化
+    private void init(Context context) {
+        paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setStyle(Paint.Style.FILL);
+        maxRadius = dp2px(context, 23 / 2f);
+        minRadius = dp2px(context, 4 / 2f);
+        radiusCircle1 = maxRadius;
+        radiusCircle2 = minRadius;
+        //不透明度：20%
+        colorCircle1 = Color.parseColor("#33" + mBaseColor);
+        //不透明度：70%）
+        colorCircle21 = Color.parseColor("#B3" + mBaseColor);
+        //不透明度42%
+        colorCircle22 = Color.parseColor("#6B" + mBaseColor);
     }
 
     @Override
