@@ -12,20 +12,6 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    signingConfigs {
-        debug {
-            storeFile file("../Sorgs.jks")
-            storePassword '123456'
-            keyAlias 'android'
-            keyPassword '123456'
-        }
-        release {
-            storeFile file("../Sorgs.jks")
-            storePassword '123456'
-            keyAlias 'android'
-            keyPassword '123456'
-        }
-    }
 
     buildTypes {
         release {
@@ -33,8 +19,6 @@ android {
             zipAlignEnabled false
             //去除无用资源
             shrinkResources false
-            //签名
-            signingConfig signingConfigs.release
             //混淆
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -42,7 +26,6 @@ android {
         debug {
             //签名
             debuggable true
-            signingConfig signingConfigs.release
         }
     }
 
