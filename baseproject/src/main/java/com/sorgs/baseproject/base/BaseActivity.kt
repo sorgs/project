@@ -175,13 +175,6 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun initLayoutId(): Int
 
     protected open fun initView(savedInstanceState: Bundle?) {
-        if (mProgressView == null) {
-            val rootView = window.decorView as ViewGroup
-            mProgressView = layoutInflater.inflate(R.layout.loading_layout, rootView, false)
-            mLoadingView = mProgressView?.findViewById(R.id.loading_view)
-            setProgressVisible(false)
-            rootView.addView(mProgressView)
-        }
         if (isNeelLoadingDialog()) {
             mLoadingDialog = LoadingDialog(mContext)
         }
@@ -207,6 +200,12 @@ abstract class BaseActivity : AppCompatActivity() {
      * @param show true展示
      */
     fun setProgressVisible(show: Boolean) {
+        if (mProgressView == null) {
+            val rootView = window.decorView as ViewGroup
+            mProgressView = layoutInflater.inflate(R.layout.loading_layout, rootView, false)
+            mLoadingView = mProgressView?.findViewById(R.id.loading_view)
+            rootView.addView(mProgressView)
+        }
         if (mProgressView != null) {
             val shortAnimTime = resources.getInteger(android.R.integer.config_shortAnimTime)
             mProgressView?.visibility = if (show) View.VISIBLE else View.GONE
