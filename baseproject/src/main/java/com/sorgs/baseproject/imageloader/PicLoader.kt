@@ -11,97 +11,72 @@ import android.widget.ImageView
 object PicLoader {
 
     /**
-     * 带有渐入式效果的图片加载。
+     * 图片加载
      *
      * @param context        上下文
      * @param url            图片地址
      * @param imageView      图片显示view
      * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadCrossFadeImage(
+    fun loadImage(
         context: Context,
         url: Int,
         imageView: ImageView,
         holderResource: Int
     ) {
-        GlideImageLoader.loadCrossFadeImage(context, url, imageView, holderResource)
+        GlideImageLoader.loadImage(context, url, imageView, holderResource)
     }
 
     /**
-     * 带有渐入式效果的图片加载。
+     * 图片加载
      *
      * @param context        上下文
      * @param url            图片地址
      * @param imageView      图片显示view
      * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadCrossFadeImage(
+    fun loadImage(
         context: Context,
         url: String,
         imageView: ImageView,
         holderResource: Int
     ) {
-        GlideImageLoader.loadCrossFadeImage(context, url, imageView, holderResource)
+        GlideImageLoader.loadImage(context, url, imageView, holderResource)
     }
 
-    /**
-     * 简单图片加载
-     *
-     * @param context        上下文
-     * @param url            图片地址
-     * @param imageView      图片显示view
-     */
-    fun loadImage(
-        context: Context,
-        url: Int,
-        imageView: ImageView
-    ) {
-        GlideImageLoader.loadImage(context, url, imageView)
-    }
 
     /**
-     * 简单图片加载
-     *
-     * @param context        上下文
-     * @param url            图片地址
-     * @param imageView      图片显示view
-     */
-    fun loadImage(
-        context: Context,
-        url: String,
-        imageView: ImageView
-    ) {
-        GlideImageLoader.loadImage(context, url, imageView)
-    }
-
-    /**
-     * 带有渐入效果的circleCrop圆形图片加载
+     * 圆形图片加载
      *
      * @param context 上下文
      * @param url 图片地址
      * @param imageView 图片显示view
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadCircleCropCrossFadImage(
+    fun loadCircleImage(
         context: Context?,
         url: String,
-        imageView: ImageView
+        imageView: ImageView,
+        holderResource: Int
     ) {
-        GlideImageLoader.loadCircleCropCrossFadImage(context, url, imageView)
+        GlideImageLoader.loadCircleImage(context, url, imageView, holderResource)
     }
 
     /**
-     * 带有渐入效果的circleCrop圆形图片加载
+     * 圆形图片加载
      *
      * @param context 上下文
      * @param url 图片地址
      * @param imageView 图片显示view
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadCircleCropCrossFadImage(
+    fun loadCircleImage(
         context: Context?,
         url: Int,
-        imageView: ImageView
+        imageView: ImageView,
+        holderResource: Int
     ) {
-        GlideImageLoader.loadCircleCropCrossFadImage(context, url, imageView)
+        GlideImageLoader.loadCircleImage(context, url, imageView, holderResource)
     }
 
     /**
@@ -110,13 +85,15 @@ object PicLoader {
      * @param context 上下文
      * @param url 图片地址
      * @param imageView 图片显示view
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadImageBlur(
+    fun loadBlurImage(
         context: Context?,
         url: String,
-        imageView: ImageView
+        imageView: ImageView,
+        holderResource: Int
     ) {
-        GlideImageLoader.loadRenderScriptImage(context, url, imageView, 50)
+        GlideImageLoader.loadBlurImage(context, url, imageView, 50, holderResource)
     }
 
     /**
@@ -125,13 +102,15 @@ object PicLoader {
      * @param context 上下文
      * @param url 图片地址
      * @param imageView 图片显示view
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadImageBlur(
+    fun loadBlurImage(
         context: Context?,
         url: Int,
-        imageView: ImageView
+        imageView: ImageView,
+        holderResource: Int
     ) {
-        GlideImageLoader.loadRenderScriptImage(context, url, imageView, 50)
+        GlideImageLoader.loadBlurImage(context, url, imageView, 50, holderResource)
     }
 
     /**
@@ -141,14 +120,16 @@ object PicLoader {
      * @param url 图片地址
      * @param imageView 图片显示view
      * @param ambiguity 模糊度
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadImageBlur(
+    fun loadBlurImage(
         context: Context?,
         url: Int,
         imageView: ImageView,
-        ambiguity: Int
+        ambiguity: Int,
+        holderResource: Int
     ) {
-        GlideImageLoader.loadRenderScriptImage(context, url, imageView, ambiguity)
+        GlideImageLoader.loadBlurImage(context, url, imageView, ambiguity, holderResource)
     }
 
     /**
@@ -158,14 +139,16 @@ object PicLoader {
      * @param url 图片地址
      * @param imageView 图片显示view
      * @param ambiguity 模糊度
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadImageBlur(
+    fun loadBlurImage(
         context: Context?,
         url: String,
         imageView: ImageView,
-        ambiguity: Int
+        ambiguity: Int,
+        holderResource: Int
     ) {
-        GlideImageLoader.loadRenderScriptImage(context, url, imageView, ambiguity)
+        GlideImageLoader.loadBlurImage(context, url, imageView, ambiguity, holderResource)
     }
 
     /**
@@ -180,18 +163,5 @@ object PicLoader {
      */
     fun clearMemory(context: Context) {
         GlideImageLoader.clearMemory(context)
-    }
-
-    /**
-     * 清除View上的图片
-     *
-     * @param context   上下文
-     * @param imageView 图片显示view
-     */
-    fun clearImageView(
-        context: Context,
-        imageView: ImageView
-    ) {
-        GlideImageLoader.clearImageView(context, imageView)
     }
 }

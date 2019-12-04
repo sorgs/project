@@ -3,5 +3,6 @@
     <color name="text_status">#ff000000</color>
     <color name="text_ffeeeeee">#ffeeeeee</color>
     <color name="color_white">#FFFFFFFF</color>
+    <color name="loading">#e2e2e2</color>
 
 </resources>

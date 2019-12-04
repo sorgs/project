@@ -2,9 +2,11 @@ package com.sorgs.baseproject.imageloader
 
 import android.content.Context
 import android.widget.ImageView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.bumptech.glide.request.RequestOptions
+import com.sorgs.baseproject.R
+import com.sorgs.baseproject.imageloader.bumptech.glide.Glide
+import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.DiskCacheStrategy
+import com.sorgs.baseproject.imageloader.transformations.BlurTransformation
+import com.sorgs.baseproject.imageloader.transformations.CropCircleTransformation
 
 /**
  * description: 利用Glide加载图片,不对外调用.
@@ -14,14 +16,14 @@ import com.bumptech.glide.request.RequestOptions
 internal object GlideImageLoader {
 
     /**
-     * 带有渐入式效果的图片加载。
+     * 图片加载。
      *
      * @param context        上下文
      * @param url            图片地址
      * @param imageView      图片显示view
      * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadCrossFadeImage(
+    fun loadImage(
         context: Context,
         url: Int,
         imageView: ImageView,
@@ -29,39 +31,9 @@ internal object GlideImageLoader {
     ) {
         Glide.with(context)
             .load(url)
-            .apply(
-                RequestOptions()
-                    .placeholder(holderResource)
-                    .error(holderResource)
-                    .optionalCenterCrop()
-            )
-            .transition(DrawableTransitionOptions().crossFade())
-            .into(imageView)
-    }
-
-    /**
-     * 带有渐入式效果的图片加载。
-     *
-     * @param context        上下文
-     * @param url            图片地址
-     * @param imageView      图片显示view
-     * @param holderResource 错误显示的图片和占位图资源ID
-     */
-    fun loadCrossFadeImage(
-        context: Context,
-        url: String,
-        imageView: ImageView,
-        holderResource: Int
-    ) {
-        Glide.with(context)
-            .load(url)
-            .apply(
-                RequestOptions()
-                    .placeholder(holderResource)
-                    .error(holderResource)
-                    .optionalCenterCrop()
-            )
-            .transition(DrawableTransitionOptions().crossFade())
+            .placeholder(holderResource)
+            .error(holderResource)
+            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .into(imageView)
     }
 
@@ -71,154 +43,128 @@ internal object GlideImageLoader {
      * @param context        上下文
      * @param url            图片地址
      * @param imageView      图片显示view
-     */
-    fun loadImage(
-        context: Context,
-        url: Int,
-        imageView: ImageView
-    ) {
-        Glide.with(context)
-            .load(url)
-            .into(imageView)
-    }
-
-    /**
-     * 图片加载。
-     *
-     * @param context        上下文
-     * @param url            图片地址
-     * @param imageView      图片显示view
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
     fun loadImage(
         context: Context,
         url: String,
-        imageView: ImageView
+        imageView: ImageView,
+        holderResource: Int
     ) {
         Glide.with(context)
             .load(url)
+            .placeholder(holderResource)
+            .error(holderResource)
+            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .into(imageView)
     }
 
+
     /**
-     * 带有渐入效果的circleCrop圆形图片加载
+     * 圆形图片加载
      *
      * @param context 上下文
      * @param url 图片地址
      * @param imageView 图片显示view
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadCircleCropCrossFadImage(
+    fun loadCircleImage(
         context: Context?,
         url: String,
-        imageView: ImageView
+        imageView: ImageView,
+        holderResource: Int
     ) {
         if (context != null) {
             Glide.with(context)
                 .load(url)
-                .apply(
-                    RequestOptions()
-                        .optionalFitCenter()
-                        .optionalCircleCrop()
-                )
-                .transition(DrawableTransitionOptions().crossFade())
+                .bitmapTransform(CropCircleTransformation(context))
+                .placeholder(R.drawable.loading_bg_circle)
+                .error(holderResource)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageView)
         }
     }
 
     /**
-     * 带有渐入效果的circleCrop圆形图片加载
+     * 圆形图片加载
      *
      * @param context 上下文
      * @param url 图片地址
      * @param imageView 图片显示view
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadCircleCropCrossFadImage(
+    fun loadCircleImage(
         context: Context?,
         url: Int,
-        imageView: ImageView
+        imageView: ImageView,
+        holderResource: Int
     ) {
         if (context != null) {
             Glide.with(context)
                 .load(url)
-                .apply(
-                    RequestOptions()
-                        .optionalFitCenter()
-                        .optionalCircleCrop()
-                )
-                .transition(DrawableTransitionOptions().crossFade())
+                .placeholder(R.drawable.loading_bg_circle)
+                .error(holderResource)
+                .bitmapTransform(CropCircleTransformation(context))
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageView)
         }
     }
 
     /**
-     * 系统方式加载高斯模糊的图片
+     * 加载高斯模糊的图片
      *
      * @param context 上下文
      * @param url 图片地址
      * @param imageView 图片显示view
      * @param radius 模糊度
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadRenderScriptImage(
+    fun loadBlurImage(
         context: Context?,
         url: String,
         imageView: ImageView,
-        radius: Int
+        radius: Int,
+        holderResource: Int
     ) {
         if (context != null) {
             Glide.with(context)
-                .asBitmap()
                 .load(url)
-                .apply(
-                    RequestOptions()
-                        .centerCrop()
-                        .transform(BlurTransformation(radius))
-                        .dontAnimate()
-                )
+                .placeholder(holderResource)
+                .error(holderResource)
+                .bitmapTransform(BlurTransformation(context, radius))
+                .dontAnimate()
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageView)
         }
-
     }
 
     /**
-     * 系统方式加载高斯模糊的图片
+     * 加载高斯模糊的图片
      *
      * @param context 上下文
      * @param url 图片地址
      * @param imageView 图片显示view
      * @param radius 模糊度
+     * @param holderResource 错误显示的图片和占位图资源ID
      */
-    fun loadRenderScriptImage(
+    fun loadBlurImage(
         context: Context?,
         url: Int,
         imageView: ImageView,
-        radius: Int
+        radius: Int,
+        holderResource: Int
     ) {
         if (context != null) {
             Glide.with(context)
-                .asBitmap()
                 .load(url)
-                .apply(
-                    RequestOptions()
-                        .centerCrop()
-                        .transform(BlurTransformation(radius))
-                        .dontAnimate()
-                )
+                .placeholder(holderResource)
+                .error(holderResource)
+                .bitmapTransform(BlurTransformation(context, radius))
+                .dontAnimate()
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageView)
         }
 
-    }
-
-    /**
-     * 清除图片
-     *
-     * @param context   上下文
-     * @param imageView 图片显示view
-     */
-    fun clearImageView(
-        context: Context,
-        imageView: ImageView
-    ) {
-        Glide.with(context)
-            .clear(imageView)
     }
 
     /**
