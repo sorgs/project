@@ -88,9 +88,8 @@ abstract class BaseActivity : AppCompatActivity() {
             rootView = layoutInflater.inflate(layoutResID, null)
         }
         setContentView(rootView)
-        if (statusBarColor() != Color.TRANSPARENT &&
-            (isNeedShowStatusBar() || customTitleHeight() != 0)
-        ) {
+        if (isNeedShowStatusBar() || customTitleHeight() != 0) {
+            //需要状态栏或者需要标题栏，都展示状态栏
             rootView!!.setPadding(0, mStatusBarHeight, 0, 0)
         }
         initView(savedInstanceState)
@@ -139,7 +138,7 @@ abstract class BaseActivity : AppCompatActivity() {
      *
      * @return true显示状态栏，false不显示状态栏
      */
-    protected open fun isNeedShowStatusBar(): Boolean = false
+    protected open fun isNeedShowStatusBar(): Boolean = true
 
     /**
      * 状态栏颜色,默认不填充状态栏

@@ -16,7 +16,7 @@ class MainActivity : JavaBaseActivity() {
 
     //override fun staticTopViewId() = R.id.ll_test
 
-    //override fun isNeedShowStatusBar(): Boolean = true
+    override fun isNeedShowStatusBar(): Boolean = false
 
 
     override fun initView(savedInstanceState: Bundle?) {

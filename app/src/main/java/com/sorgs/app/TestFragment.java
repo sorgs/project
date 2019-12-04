@@ -24,10 +24,6 @@ public class TestFragment extends JavaBaseFragment {
         return true;
     }
 
-    @Override
-    protected boolean isNeedShowStatusBar() {
-        return true;
-    }
 
     @Override
     protected void initListener() {

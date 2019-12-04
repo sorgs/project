@@ -82,7 +82,8 @@ abstract class BaseFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         if (isNeedMultiStatusLayout() && initLayoutId() != 0) {
@@ -157,14 +158,6 @@ abstract class BaseFragment : Fragment() {
      * @return 为true时会在layout外在封装一层MultiStatusLayout
      */
     protected open fun isNeedMultiStatusLayout(): Boolean = true
-
-
-    /**
-     * 是否需要显示状态栏
-     *
-     * @return true显示状态栏，false不显示状态栏
-     */
-    protected open fun isNeedShowStatusBar(): Boolean = false
 
     /**
      * 标题栏高度
