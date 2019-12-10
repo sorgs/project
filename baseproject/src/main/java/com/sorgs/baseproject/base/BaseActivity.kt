@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import com.sorgs.baseproject.R
 import com.sorgs.baseproject.utils.*
 import com.sorgs.baseproject.widget.LoadingDialog
@@ -72,7 +71,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initDefaultData()
-        initStatus()
+        if (isNeedStatus()) {
+            initStatus()
+        }
         super.onCreate(savedInstanceState)
         val layoutResID = initLayoutId()
         //如果initView返回0,则不会调用setContentView()
@@ -113,22 +114,14 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     /**
-     * 适配状态栏
+     * 状态栏透明
      */
     protected open fun initStatus() {
-        val window = window
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        if (customTitleHeight() != 0 || isNeedShowStatusBar()) {
-            window.clearFlags(
-                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
-                        or WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION
-            )
-            if (AndroidVersion.hasLollipop()) {
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                window.statusBarColor = statusBarColor()
-            }
-
+        if (AndroidVersion.hasLollipop()) {
+            val decorView = window.decorView
+            decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            window.statusBarColor = Color.TRANSPARENT
         }
     }
 
@@ -159,6 +152,12 @@ abstract class BaseActivity : AppCompatActivity() {
      * @return 为true时会在layout外在封装一层MultiStatusLayout
      */
     protected open fun isNeedMultiStatusLayout(): Boolean = true
+
+    /**
+     * 是否需要透明状态栏，默认false
+     *
+     */
+    protected open fun isNeedStatus() = false
 
     /**
      * 不管状态一直在上层显示的View的ID

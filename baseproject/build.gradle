@@ -9,7 +9,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 3
-        versionName "3.7"
+        versionName "3.8"
         //proguard文件打包进aar中
         consumerProguardFiles 'proguard-rules.pro'
     }
