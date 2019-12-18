@@ -8,11 +8,12 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
 
-import com.sorgs.baseproject.imageloader.bumptech.glide.Glide;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.Transformation;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.Resource;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.resource.bitmap.BitmapResource;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.Transformation;
+import com.bumptech.glide.load.engine.Resource;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import com.bumptech.glide.load.resource.bitmap.BitmapResource;
+
 
 /**
  * 环形圆角转换
@@ -233,6 +234,7 @@ public class RoundedCornersTransformation implements Transformation<Bitmap> {
         return "RoundedTransformation(radius=" + mRadius + ", margin=" + mMargin + ", diameter="
                 + mDiameter + ", cornerType=" + mCornerType.name() + ")";
     }
+
 
     public enum CornerType {
         ALL,

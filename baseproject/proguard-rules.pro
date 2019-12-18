@@ -196,7 +196,6 @@
 -dontwarn io.reactivex.**
 
 #glide 的混淆代码
-#glide
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep public class * extends com.bumptech.glide.module.AppGlideModule
 -keep public enum com.bumptech.glide.load.ImageHeaderParser$** {

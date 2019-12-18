@@ -3,11 +3,12 @@ package com.sorgs.baseproject.imageloader.transformations;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.sorgs.baseproject.imageloader.bumptech.glide.Glide;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.Transformation;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.Resource;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.resource.bitmap.BitmapResource;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.Transformation;
+import com.bumptech.glide.load.engine.Resource;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import com.bumptech.glide.load.resource.bitmap.BitmapResource;
+
 
 /**
  * 方形裁剪
@@ -48,4 +49,5 @@ public class CropSquareTransformation implements Transformation<Bitmap> {
     public String getId() {
         return "CropSquareTransformation(width=" + mWidth + ", height=" + mHeight + ")";
     }
+
 }

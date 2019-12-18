@@ -1,8 +1,10 @@
 package com.sorgs.app;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import com.sorgs.baseproject.base.JavaBaseFragment;
+import com.sorgs.baseproject.imageloader.PicLoader;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -17,20 +19,15 @@ public class TestFragment extends JavaBaseFragment {
     @Override
     protected void initView(@Nullable Bundle savedInstanceState) {
         super.initView(savedInstanceState);
+        ImageView imageView = getView().findViewById(R.id.iv_hello);
+        PicLoader.INSTANCE.loadImage(mContext,
+                "http://bmob.files.emoticon.sorgs.cn/2019/12/12/396d4ed13e13463ca59989db309defe4.gif", imageView,
+                R.mipmap.ic_launcher);
     }
 
     @Override
     protected boolean isNeelLoadingDialog() {
-        return true;
-    }
-
-
-    @Override
-    protected void initListener() {
-        super.initListener();
-        showLoadingDialog();
-        getMActivity().findViewById(R.id.tv_hello)
-                      .setOnClickListener(v -> showError(R.string.info_net_error, this::dismissLoadingDialog));
+        return false;
     }
 
     @Override
@@ -38,8 +35,4 @@ public class TestFragment extends JavaBaseFragment {
         return R.layout.fragment_test;
     }
 
-    @Override
-    protected int staticTopViewId() {
-        return R.id.tv_hello;
-    }
 }

@@ -7,11 +7,12 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 
-import com.sorgs.baseproject.imageloader.bumptech.glide.Glide;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.Transformation;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.Resource;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.resource.bitmap.BitmapResource;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.Transformation;
+import com.bumptech.glide.load.engine.Resource;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import com.bumptech.glide.load.resource.bitmap.BitmapResource;
+
 
 /**
  * 彩色滤光片转换
@@ -58,4 +59,5 @@ public class ColorFilterTransformation implements Transformation<Bitmap> {
     public String getId() {
         return "ColorFilterTransformation(color=" + mColor + ")";
     }
+
 }

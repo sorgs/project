@@ -8,11 +8,11 @@ import android.graphics.Paint;
 import android.os.Build;
 import android.renderscript.RSRuntimeException;
 
-import com.sorgs.baseproject.imageloader.bumptech.glide.Glide;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.Transformation;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.Resource;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
-import com.sorgs.baseproject.imageloader.bumptech.glide.load.resource.bitmap.BitmapResource;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.Transformation;
+import com.bumptech.glide.load.engine.Resource;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.sorgs.baseproject.imageloader.transformations.internal.FastBlur;
 import com.sorgs.baseproject.imageloader.transformations.internal.RSBlur;
 
@@ -91,8 +91,10 @@ public class BlurTransformation implements Transformation<Bitmap> {
         return BitmapResource.obtain(bitmap, mBitmapPool);
     }
 
+
     @Override
     public String getId() {
         return "BlurTransformation(radius=" + mRadius + ", sampling=" + mSampling + ")";
     }
+
 }
