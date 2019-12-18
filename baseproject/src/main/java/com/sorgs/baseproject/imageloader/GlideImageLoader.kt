@@ -3,6 +3,7 @@ package com.sorgs.baseproject.imageloader
 import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.sorgs.baseproject.R
 import com.sorgs.baseproject.imageloader.transformations.BlurTransformation
 import com.sorgs.baseproject.imageloader.transformations.CropCircleTransformation
@@ -32,7 +33,7 @@ internal object GlideImageLoader {
             .load(url)
             .placeholder(holderResource)
             .error(holderResource)
-            .dontAnimate()
+            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .into(imageView)
     }
 
@@ -54,7 +55,7 @@ internal object GlideImageLoader {
             .load(url)
             .placeholder(holderResource)
             .error(holderResource)
-            .dontAnimate()
+            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .into(imageView)
     }
 
@@ -79,7 +80,7 @@ internal object GlideImageLoader {
                 .bitmapTransform(CropCircleTransformation(context))
                 .placeholder(R.drawable.loading_bg_circle)
                 .error(holderResource)
-                .dontAnimate()
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageView)
         }
     }
@@ -104,7 +105,7 @@ internal object GlideImageLoader {
                 .placeholder(R.drawable.loading_bg_circle)
                 .error(holderResource)
                 .bitmapTransform(CropCircleTransformation(context))
-                .dontAnimate()
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageView)
         }
     }
@@ -131,6 +132,7 @@ internal object GlideImageLoader {
                 .placeholder(holderResource)
                 .error(holderResource)
                 .bitmapTransform(BlurTransformation(context, radius))
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .dontAnimate()
                 .into(imageView)
         }
@@ -158,6 +160,7 @@ internal object GlideImageLoader {
                 .placeholder(holderResource)
                 .error(holderResource)
                 .bitmapTransform(BlurTransformation(context, radius))
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .dontAnimate()
                 .into(imageView)
         }
