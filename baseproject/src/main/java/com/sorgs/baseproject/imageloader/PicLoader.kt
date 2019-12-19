@@ -80,7 +80,7 @@ object PicLoader {
     }
 
     /**
-     * 加载默认模糊度为50的高斯模糊图
+     * 加载模糊度为50的高斯模糊图
      *
      * @param context 上下文
      * @param url 图片地址
@@ -97,7 +97,7 @@ object PicLoader {
     }
 
     /**
-     * 加载默认模糊度为50的高斯模糊图
+     * 加载模糊度为50的高斯模糊图
      *
      * @param context 上下文
      * @param url 图片地址
@@ -114,7 +114,7 @@ object PicLoader {
     }
 
     /**
-     * 加载默认模糊度为自定义的高斯模糊图
+     * 加载模糊度为自定义的高斯模糊图
      *
      * @param context 上下文
      * @param url 图片地址
@@ -133,7 +133,7 @@ object PicLoader {
     }
 
     /**
-     * 加载默认模糊度为自定义的高斯模糊图
+     * 加载模糊度为自定义的高斯模糊图
      *
      * @param context 上下文
      * @param url 图片地址
