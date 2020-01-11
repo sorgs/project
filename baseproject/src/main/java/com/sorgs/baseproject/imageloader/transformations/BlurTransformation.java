@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
 import android.renderscript.RSRuntimeException;
+import android.support.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.Transformation;
@@ -15,6 +16,8 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.sorgs.baseproject.imageloader.transformations.internal.FastBlur;
 import com.sorgs.baseproject.imageloader.transformations.internal.RSBlur;
+
+import java.security.MessageDigest;
 
 
 /**
@@ -58,8 +61,14 @@ public class BlurTransformation implements Transformation<Bitmap> {
         this(context, Glide.get(context).getBitmapPool(), radius, sampling);
     }
 
+    public String getId() {
+        return "BlurTransformation(radius=" + mRadius + ", sampling=" + mSampling + ")";
+    }
+
+    @NonNull
     @Override
-    public Resource<Bitmap> transform(Resource<Bitmap> resource, int outWidth, int outHeight) {
+    public Resource<Bitmap> transform(@NonNull Context context, @NonNull Resource<Bitmap> resource, int outWidth,
+                                      int outHeight) {
         Bitmap source = resource.get();
 
         int width = source.getWidth();
@@ -91,10 +100,8 @@ public class BlurTransformation implements Transformation<Bitmap> {
         return BitmapResource.obtain(bitmap, mBitmapPool);
     }
 
-
     @Override
-    public String getId() {
-        return "BlurTransformation(radius=" + mRadius + ", sampling=" + mSampling + ")";
-    }
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
 
+    }
 }

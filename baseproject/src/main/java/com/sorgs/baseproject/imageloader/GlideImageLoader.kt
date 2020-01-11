@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.sorgs.baseproject.R
 import com.sorgs.baseproject.imageloader.transformations.BlurTransformation
 import com.sorgs.baseproject.imageloader.transformations.CropCircleTransformation
@@ -31,9 +32,11 @@ internal object GlideImageLoader {
     ) {
         Glide.with(context)
             .load(url)
-            .placeholder(holderResource)
-            .error(holderResource)
-            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+            .apply(
+                RequestOptions().placeholder(holderResource)
+                    .error(holderResource)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            )
             .into(imageView)
     }
 
@@ -53,9 +56,12 @@ internal object GlideImageLoader {
     ) {
         Glide.with(context)
             .load(url)
-            .placeholder(holderResource)
-            .error(holderResource)
-            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+            .apply(
+                RequestOptions()
+                    .placeholder(holderResource)
+                    .error(holderResource)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            )
             .into(imageView)
     }
 
@@ -77,10 +83,12 @@ internal object GlideImageLoader {
         if (context != null) {
             Glide.with(context)
                 .load(url)
-                .bitmapTransform(CropCircleTransformation(context))
-                .placeholder(R.drawable.loading_bg_circle)
-                .error(holderResource)
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .apply(
+                    RequestOptions().transform(CropCircleTransformation(context))
+                        .placeholder(R.drawable.loading_bg_circle)
+                        .error(holderResource)
+                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                )
                 .into(imageView)
         }
     }
@@ -102,10 +110,13 @@ internal object GlideImageLoader {
         if (context != null) {
             Glide.with(context)
                 .load(url)
-                .placeholder(R.drawable.loading_bg_circle)
-                .error(holderResource)
-                .bitmapTransform(CropCircleTransformation(context))
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .apply(
+                    RequestOptions()
+                        .placeholder(R.drawable.loading_bg_circle)
+                        .error(holderResource)
+                        .transform(CropCircleTransformation(context))
+                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                )
                 .into(imageView)
         }
     }
@@ -129,11 +140,14 @@ internal object GlideImageLoader {
         if (context != null) {
             Glide.with(context)
                 .load(url)
-                .placeholder(holderResource)
-                .error(holderResource)
-                .bitmapTransform(BlurTransformation(context, radius))
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .dontAnimate()
+                .apply(
+                    RequestOptions()
+                        .placeholder(holderResource)
+                        .error(holderResource)
+                        .transform(BlurTransformation(context, radius))
+                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                        .dontAnimate()
+                )
                 .into(imageView)
         }
     }
@@ -157,11 +171,14 @@ internal object GlideImageLoader {
         if (context != null) {
             Glide.with(context)
                 .load(url)
-                .placeholder(holderResource)
-                .error(holderResource)
-                .bitmapTransform(BlurTransformation(context, radius))
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .dontAnimate()
+                .apply(
+                    RequestOptions()
+                        .placeholder(holderResource)
+                        .error(holderResource)
+                        .transform(BlurTransformation(context, radius))
+                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                        .dontAnimate()
+                )
                 .into(imageView)
         }
 
