@@ -138,6 +138,10 @@ abstract class JavaBaseActivity : AppCompatActivity() {
             decorView.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             window.statusBarColor = Color.TRANSPARENT
+            if (AndroidVersion.hasMarshmallow()) {
+                //修改标题栏颜色为暗色主题颜色（黑色）
+                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            }
         }
     }
 
