@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+apply from: "../config.gradle"
+
+android {
+
+    defaultConfig {
+        // 混淆配置
+        consumerProguardFiles 'proguard-umeng.pro'
+
+        // 清单占位符
+        manifestPlaceholders = [
+                // 友盟 AppKey
+                "UMENG_APPKEY": "5e6af3f70cafb2f6740002ed",
+                // QQ AppId
+                "QQ_APPID"    : "101861046",
+                // QQ AppKey
+                "QQ_APPKEY"   : "c779595f6f513d799c6643cfaee87fef",
+                // 微信 AppId
+                "WX_APPID"    : "wxdc1e388c3822c80b",
+                // 微信 AppKey
+                "WX_APPKEY"   : "3baf1193c85774b3fd9d18447d76cab0"
+        ]
+    }
+}
+
+dependencies {
+    // 谷歌兼容库：https://developer.android.google.cn/jetpack/androidx/releases/appcompat?hl=zh-cn
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'com.google.android.material:material:1.1.0'
+}

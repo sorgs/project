@@ -10,12 +10,13 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresPermission;
 import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresPermission;
 
 import com.sorgs.baseproject.base.SorgsOptions;
 

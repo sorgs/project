@@ -5,4 +5,86 @@
     <string name="info_net_error_retry">网络异常，点击屏幕重试</string>
     <string name="info_no_data">暂无内容</string>
     <string name="info_net_error">似乎已断开网络连接</string>
+
+    <string name="common_loading">加载中&#8230;</string>
+
+    <string name="common_permission_hint">请先授予权限</string>
+    <string name="common_permission_fail">授权失败，请手动授予权限</string>
+
+    <string name="common_network">当前没有网络连接，请检查网络设置</string>
+
+    <string name="common_year">年</string>
+    <string name="common_month">月</string>
+    <string name="common_day">日</string>
+
+    <string name="common_hour">时</string>
+    <string name="common_minute">分</string>
+    <string name="common_second">秒</string>
+
+    <string name="common_confirm">确定</string>
+    <string name="common_cancel">取消</string>
+
+    <string name="common_code_send">发送验证码</string>
+
+
+    <!-- 提示布局 -->
+    <string name="hint_layout_no_data">空空如也</string>
+    <string name="hint_layout_error_request">请求出错，点击重试</string>
+    <string name="hint_layout_error_network">网络错误，点击重试</string>
+    <!-- 地区对话框 -->
+    <string name="address_title">请选择地区</string>
+    <string name="address_hint">请选择</string>
+
+    <!-- 日期对话框 -->
+    <string name="date_title">请选择日期</string>
+
+    <!-- 时间对话框 -->
+    <string name="time_title">请选择时间</string>
+
+    <!-- 升级对话框 -->
+    <string name="update_title">发现新版本</string>
+
+    <string name="update_content">更新内容</string>
+
+    <string name="update_no">下次再说</string>
+    <string name="update_yes">立即更新</string>
+    <string name="update_background">后台更新</string>
+
+    <string name="update_permission_hint">必须先要授予权限才能正常下载更新哦</string>
+
+    <string name="update_status_running">下载中 %d%%</string>
+    <string name="update_status_successful">立即安装</string>
+    <string name="update_status_failed">下载失败</string>
+
+    <string name="update_no_update">当前已是最新版本</string>
+
+    <!-- 分享对话框 -->
+    <string name="share_title">分享到&#8230;</string>
+
+    <string name="share_platform_wechat">微信</string>
+    <string name="share_platform_moment">朋友圈</string>
+    <string name="share_platform_qq">QQ</string>
+    <string name="share_platform_qzone">QQ空间</string>
+    <string name="share_platform_link">复制链接</string>
+
+    <string name="share_platform_copy_hint">已复制到剪贴板</string>
+
+    <!-- 支付密码对话框 -->
+    <string name="pay_title">请输入支付密码</string>
+
+    <!-- 支付密码对话框 -->
+    <string name="select_min_hint">至少要选择 %d 项</string>
+    <string name="select_max_hint">最多只能选择 %d 项</string>
+
+    <!-- 图片选择 -->
+    <string name="photo_title">图片选择</string>
+    <string name="photo_all">所有图片</string>
+
+    <string name="photo_total">共 %d 张</string>
+
+    <string name="photo_max_hint">本次最多只能选择 %d 张图片</string>
+
+    <string name="photo_launch_fail">无法启动相机</string>
+    <string name="photo_picture_error">图片错误</string>
+
 </resources>

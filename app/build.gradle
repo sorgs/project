@@ -52,7 +52,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
     //debugImplementation files('libs/baseproject-release.aar')
 
     implementation project(':baseproject') //debug 版本直接引用本地项目

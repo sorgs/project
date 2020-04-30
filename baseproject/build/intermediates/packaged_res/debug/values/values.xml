@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black10">#1A000000</color>
+    <color name="black15">#26000000</color>
+    <color name="black20">#33000000</color>
+    <color name="black25">#40000000</color>
+    <color name="black30">#4D000000</color>
+    <color name="black35">#59000000</color>
+    <color name="black40">#66000000</color>
+    <color name="black45">#73000000</color>
+    <color name="black5">#0D000000</color>
+    <color name="black50">#80000000</color>
+    <color name="black55">#8C000000</color>
+    <color name="black60">#99000000</color>
+    <color name="black65">#A6000000</color>
+    <color name="black70">#B3000000</color>
+    <color name="black75">#B000000F</color>
+    <color name="black80">#CC000000</color>
+    <color name="black85">#D9000000</color>
+    <color name="black90">#E6000000</color>
+    <color name="black95">#F2000000</color>
+    <color name="blue">#0000FF</color>
+    <color name="colorAccent">#5A8DDF</color>
+    <color name="colorButtonDisable">#BBBBBB</color>
+    <color name="colorButtonPressed">#1976D2</color>
+    <color name="colorCancel">#F44336</color>
+    <color name="colorConfirm">#007AFF</color>
+    <color name="colorLine">#ECECEC</color>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/black</color>
+    <color name="defaultColor">#5A8DDF</color>
+    <color name="gold">#FFD700</color>
+    <color name="gray">#808080</color>
+    <color name="green">#008000</color>
+    <color name="loading">#e2e2e2</color>
+    <color name="orange">#FFA500</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="purple">#800080</color>
+    <color name="red">#FF0000</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorHint">#757575</color>
+    <color name="text_ffeeeeee">#ffeeeeee</color>
+    <color name="text_status">#ff000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white10">#1AFFFFFF</color>
+    <color name="white15">#26FFFFFF</color>
+    <color name="white20">#33FFFFFF</color>
+    <color name="white25">#40FFFFFF</color>
+    <color name="white30">#4DFFFFFF</color>
+    <color name="white35">#59FFFFFF</color>
+    <color name="white40">#66FFFFFF</color>
+    <color name="white45">#73FFFFFF</color>
+    <color name="white5">#0DFFFFFF</color>
+    <color name="white50">#80FFFFFF</color>
+    <color name="white55">#8CFFFFFF</color>
+    <color name="white60">#99FFFFFF</color>
+    <color name="white65">#A6FFFFFF</color>
+    <color name="white70">#B3FFFFFF</color>
+    <color name="white75">#BFFFFFFF</color>
+    <color name="white80">#CCFFFFFF</color>
+    <color name="white85">#D9FFFFFF</color>
+    <color name="white90">#E6FFFFFF</color>
+    <color name="white95">#F2FFFFFF</color>
+    <color name="windowBackground">#F4F4F4</color>
+    <color name="yellow">#FFFF00</color>
+    <dimen name="app_title_bar_height">44dp</dimen>
+    <dimen name="button_round_size">5dp</dimen>
+    <dimen name="circle_size">999dp</dimen>
+    <dimen name="dialog_ui_round_size">15dp</dimen>
+    <dimen name="line_size">1px</dimen>
+    <integer name="activity_anim_duration">2000</integer>
+    <integer name="anim_duration_long">400</integer>
+    <integer name="anim_duration_medium">300</integer>
+    <string name="address_hint">请选择</string>
+    <string name="address_title">请选择地区</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_code_send">发送验证码</string>
+    <string name="common_confirm">确定</string>
+    <string name="common_day">日</string>
+    <string name="common_hour">时</string>
+    <string name="common_loading">加载中…</string>
+    <string name="common_minute">分</string>
+    <string name="common_month">月</string>
+    <string name="common_network">当前没有网络连接，请检查网络设置</string>
+    <string name="common_permission_fail">授权失败，请手动授予权限</string>
+    <string name="common_permission_hint">请先授予权限</string>
+    <string name="common_second">秒</string>
+    <string name="common_year">年</string>
+    <string name="date_title">请选择日期</string>
+    <string name="hint_layout_error_network">网络错误，点击重试</string>
+    <string name="hint_layout_error_request">请求出错，点击重试</string>
+    <string name="hint_layout_no_data">空空如也</string>
+    <string name="info_net_error">似乎已断开网络连接</string>
+    <string name="info_net_error_retry">网络异常，点击屏幕重试</string>
+    <string name="info_no_data">暂无内容</string>
+    <string name="pay_title">请输入支付密码</string>
+    <string name="photo_all">所有图片</string>
+    <string name="photo_launch_fail">无法启动相机</string>
+    <string name="photo_max_hint">本次最多只能选择 %d 张图片</string>
+    <string name="photo_picture_error">图片错误</string>
+    <string name="photo_title">图片选择</string>
+    <string name="photo_total">共 %d 张</string>
+    <string name="project_no_permission">请同意权限之后再试！</string>
+    <string name="select_max_hint">最多只能选择 %d 项</string>
+    <string name="select_min_hint">至少要选择 %d 项</string>
+    <string name="share_platform_copy_hint">已复制到剪贴板</string>
+    <string name="share_platform_link">复制链接</string>
+    <string name="share_platform_moment">朋友圈</string>
+    <string name="share_platform_qq">QQ</string>
+    <string name="share_platform_qzone">QQ空间</string>
+    <string name="share_platform_wechat">微信</string>
+    <string name="share_title">分享到…</string>
+    <string name="time_title">请选择时间</string>
+    <string name="update_background">后台更新</string>
+    <string name="update_content">更新内容</string>
+    <string name="update_no">下次再说</string>
+    <string name="update_no_update">当前已是最新版本</string>
+    <string name="update_permission_hint">必须先要授予权限才能正常下载更新哦</string>
+    <string name="update_status_failed">下载失败</string>
+    <string name="update_status_running">下载中 %d%%</string>
+    <string name="update_status_successful">立即安装</string>
+    <string name="update_title">发现新版本</string>
+    <string name="update_yes">立即更新</string>
+    <style name="BaseDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert"><!-- @android:style/Theme.Dialog -->
+        <!-- 无边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 浮在 Activity 之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 遮盖层 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 动画效果 -->
+        <item name="android:windowEnterAnimation">@anim/window_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/window_scale_out</item>
+        <!-- Base.Theme.AppCompat.Light.Dialog.Alert 特有的属性，用于指定默认宽度，这里需要禁用 -->
+        <item name="android:windowMinWidthMajor">0dp</item>
+        <item name="android:windowMinWidthMinor">0dp</item>
+        <!-- 解决 ActionBar 占位导致 Dialog 无法全屏显示的问题 -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- ActionMode 覆盖 Actionbar，不顶下来 -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 不感知敏感的切换 -->
+        <!--<item name="android:configChanges">orientation|screenSize|keyboardHidden</item>-->
+        <!-- 默认隐藏输入法 -->
+        <!--<item name="android:windowSoftInputMode">stateHidden</item>-->
+        <!-- Dialog 全屏显示 -->
+        <!--<item name="android:windowFullscreen">true</item>-->
+    </style>
+    <style name="BottomAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/window_bottom_out</item>
+    </style>
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:paddingStart">15dp</item>
+        <item name="android:paddingEnd">15dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white90</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_button</item>
+        <item name="android:foreground">@null</item>
+    </style>
+    <style name="CountdownViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_countdown</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:minWidth">90dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/common_code_send</item>
+        <item name="android:textColor">@drawable/selector_countdown_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="EditTextStyle">
+        <item name="android:background">@null</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColorHint">#A4A4A4</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+    </style>
+    <style name="HorizontalLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_size</item>
+        <item name="android:background">@color/colorLine</item>
+    </style>
+    <style name="IOSAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_ios_in</item>
+        <item name="android:windowExitAnimation">@anim/window_ios_out</item>
+    </style>
+    <style name="LeftAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_left_in</item>
+        <item name="android:windowExitAnimation">@anim/window_left_out</item>
+    </style>
+    <style name="RectButtonStyle" parent="ButtonStyle">
+        <item name="android:background">@drawable/selector_button_rect</item>
+    </style>
+    <style name="RefreshLayoutStyle" parent="Base.CardView">
+        <item name="srlPrimaryColor">#5A8DDF</item>
+        <item name="srlAccentColor">@color/white</item>
+        <item name="srlEnablePreviewInEditMode">false</item>
+    </style>
+    <style name="RightAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_right_in</item>
+        <item name="android:windowExitAnimation">@anim/window_right_out</item>
+    </style>
+    <style name="ScaleAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/window_scale_out</item>
+    </style>
+    <style name="TopAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_top_in</item>
+        <item name="android:windowExitAnimation">@anim/window_top_out</item>
+    </style>
+    <style name="VerticalLineStyle">
+        <item name="android:layout_width">@dimen/line_size</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorLine</item>
+    </style>
+    <declare-styleable name="CustomViewStub">
+        <!-- 布局 id -->
+        <attr name="android:layout"/>
+    </declare-styleable>
+    <declare-styleable name="ProgressView">
+        <attr format="boolean" name="progressIndeterminate"/>
+        <attr format="color" name="barColor"/>
+        <attr format="color" name="rimColor"/>
+        <attr format="dimension" name="rimWidth"/>
+        <attr format="float" name="spinSpeed"/>
+        <attr format="integer" name="barSpinCycleTime"/>
+        <attr format="dimension" name="circleRadius"/>
+        <attr format="boolean" name="fillRadius"/>
+        <attr format="dimension" name="barWidth"/>
+        <attr format="boolean" name="linearProgress"/>
+    </declare-styleable>
+    <declare-styleable name="RatioFrameLayout">
+        <!-- 宽高比例 -->
+        <attr format="float" name="sizeRatio"/>
+    </declare-styleable>
+    <declare-styleable name="RegexEditText">
+        <!-- 正则输入限制 -->
+        <attr format="string" name="inputRegex"/>
+        <!-- 常用正则类型 -->
+        <attr name="regexType">
+            <!-- 手机号（只能以 1 开头） -->
+            <enum name="mobile" value="0x01"/>
+            <!-- 中文（普通的中文字符） -->
+            <enum name="chinese" value="0x02"/>
+            <!-- 英文（大写和小写的英文） -->
+            <enum name="english" value="0x03"/>
+            <!-- 整数（非 0 开头的数字） -->
+            <enum name="count" value="0x04"/>
+            <!-- 用户名（中文、英文、数字） -->
+            <enum name="name" value="0x05"/>
+            <!-- 非空格字符 -->
+            <enum name="nonnull" value="0x06"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="ScaleImageView">
+        <!-- 缩放比例 -->
+        <attr format="float" name="scaleRatio"/>
+    </declare-styleable>
+    <declare-styleable name="SettingBar">
+        <!-- 左边 -->
+        <attr format="string" name="bar_leftText"/>
+        <attr format="string" name="bar_leftHint"/>
+        <attr format="reference" name="bar_leftIcon"/>
+        <attr format="color" name="bar_leftColor"/>
+        <attr format="dimension" name="bar_leftSize"/>
+        <!-- 右边 -->
+        <attr format="string" name="bar_rightText"/>
+        <attr format="string" name="bar_rightHint"/>
+        <attr format="reference" name="bar_rightIcon"/>
+        <attr format="color" name="bar_rightColor"/>
+        <attr format="dimension" name="bar_rightSize"/>
+        <!-- 分割线 -->
+        <attr format="boolean" name="bar_lineVisible"/>
+        <attr format="reference|color" name="bar_lineColor"/>
+        <attr format="dimension" name="bar_lineSize"/>
+        <attr format="dimension" name="bar_lineMargin"/>
+    </declare-styleable>
+    <declare-styleable name="SwitchButton">
+        <!-- 是否选中 -->
+        <attr name="android:checked"/>
+        <!-- 是否禁用 -->
+        <attr name="android:enabled"/>
+    </declare-styleable>
+</resources>

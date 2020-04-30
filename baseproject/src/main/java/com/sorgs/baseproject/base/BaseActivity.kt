@@ -1,19 +1,27 @@
 package com.sorgs.baseproject.base
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
-import com.sorgs.baseproject.R
-import com.sorgs.baseproject.utils.*
-import com.sorgs.baseproject.widget.LoadingDialog
-import com.sorgs.baseproject.widget.MultiStatusLayout
+import android.view.Window
+import android.view.inputmethod.InputMethodManager
+import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
+import com.gyf.immersionbar.ImmersionBar
+import com.hjq.bar.TitleBar
+import com.sorgs.baseproject.action.BundleAction
+import com.sorgs.baseproject.action.ClickAction
+import com.sorgs.baseproject.action.TitleBarAction
+import com.sorgs.baseproject.dialog.LoadingDialog
+import com.sorgs.baseproject.dialog.WaitDialog
+import com.sorgs.baseproject.utils.ToastUtils
+import com.sorgs.baseproject.utils.singleClick
+import java.util.*
+import kotlin.math.pow
 
 /**
  * description: Activity基本.
@@ -21,152 +29,245 @@ import com.sorgs.baseproject.widget.MultiStatusLayout
  * @author Sorgs.
  * Created date: 2018/12/31.
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), ClickAction, BundleAction, TitleBarAction {
     /**
      * Tag
      */
     protected open var TAG = javaClass.simpleName
+
     /**
      * 上下文
      */
     protected open lateinit var mContext: Context
-    private var mProgressView: View? = null
-    private var mLoadingView: View? = null
 
     /**
-     * 整体布局
+     * startActivityForResult 方法优化
      */
-    private var rootView: View? = null
+    private var mActivityCallback: OnActivityCallback? = null
+
+    private var mActivityRequestCode = 0
 
     /**
-     * 屏幕状态栏高度
+     * 标题栏对象
      */
-    var mStatusBarHeight = 0
+    private var mTitleBar: TitleBar? = null
 
     /**
-     * 屏幕宽度
+     * 状态栏沉浸
      */
-    var mScreenWidth = 0
-    /**
-     * 屏幕高度(包含状态栏高度但不包含底部虚拟按键高度)
-     */
-    protected open var mScreenHeight = 0
+    private var mImmersionBar: ImmersionBar? = null
 
     /**
-     * 标题栏高度
+     * 加载对话框
      */
-    protected open var mTitleHeight = 0
+    private var mLoadingDialog: BaseDialog? = null
 
-    protected open lateinit var mActivity: Activity
-
-    /**
-     * 多状态布局
-     */
-    protected open var mStatusLayout: MultiStatusLayout? = null
+    private var mLoadingView: BaseDialog? = null
 
     /**
-     * 非全屏loading
+     * 对话框数量
      */
-    private var mLoadingDialog: LoadingDialog? = null
+    private var mDialogTotal = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initDefaultData()
-        if (isNeedStatus()) {
-            initStatus()
-        }
         super.onCreate(savedInstanceState)
-        val layoutResID = initLayoutId()
-        //如果initView返回0,则不会调用setContentView()
-        if (isNeedMultiStatusLayout()) {
-            mStatusLayout = MultiStatusLayout(this)
-            //可以进行一些MultiStatusLayout的配置
-            mStatusLayout?.setContent(layoutResID)
-            mStatusLayout?.setStaticTop(staticTopViewId())
-            rootView = mStatusLayout
-            mStatusLayout?.showContent()
-        } else {
-            rootView = layoutInflater.inflate(layoutResID, null)
-        }
-        setContentView(rootView)
-        if (isNeedShowStatusBar() || customTitleHeight() != 0) {
-            //需要状态栏或者需要标题栏，都展示状态栏
-            rootView!!.setPadding(0, mStatusBarHeight, 0, 0)
-        }
+        mContext = this
+        initLayout()
         initView(savedInstanceState)
         initData()
         initListener()
     }
 
-
     /**
-     * 初始化部分成员变量
+     * 初始化布局
      */
-    private fun initDefaultData() {
-        //公用成员变量初始化
-        mActivity = this
-        mContext = this
-        mScreenWidth = ScreenUtils.getScreenWidth()
-        mScreenHeight = ScreenUtils.getScreenHeight()
-        mStatusBarHeight = BarUtils.getStatusBarHeight()
-        mTitleHeight =
-            SizeUtils.dp2px(resources.getDimensionPixelSize(R.dimen.app_title_bar_height))
+    protected open fun initLayout() {
+        if (initLayoutId() > 0) {
+            setContentView(initLayoutId())
+            initSoftKeyboard()
+        }
+        titleBar?.setOnTitleBarListener(this)
+        initImmersion()
     }
 
+    override fun getTitleBar(): TitleBar? {
+        if (mTitleBar == null) {
+            mTitleBar = findTitleBar(getContentView())
+        }
+        return mTitleBar
+    }
 
     /**
-     * 状态栏透明
+     * 获取状态栏沉浸的配置对象
      */
-    protected open fun initStatus() {
-        if (AndroidVersion.hasLollipop()) {
-            val decorView = window.decorView
-            decorView.systemUiVisibility =
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            window.statusBarColor = Color.TRANSPARENT
-            if (AndroidVersion.hasMarshmallow()) {
-                //修改标题栏颜色为暗色主题颜色（黑色）
-                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+    open fun getStatusBarConfig(): ImmersionBar? {
+        return mImmersionBar
+    }
+
+    override fun onLeftClick(v: View?) {
+        onBackPressed()
+    }
+
+    /**
+     * 初始化沉浸式
+     */
+    protected open fun initImmersion() {
+        // 初始化沉浸式状态栏
+        if (isStatusBarEnabled()) {
+            createStatusBarConfig()?.init()
+
+            // 设置标题栏沉浸
+            if (mTitleBar != null) {
+                ImmersionBar.setTitleBar(this, mTitleBar)
             }
         }
     }
 
     /**
-     * 是否需要显示状态栏
-     *
-     * @return true显示状态栏，false不显示状态栏
+     * 是否使用沉浸式状态栏
      */
-    protected open fun isNeedShowStatusBar(): Boolean = true
+    protected open fun isStatusBarEnabled(): Boolean {
+        return true
+    }
+
+    override fun finish() {
+        hideSoftKeyboard()
+        super.finish()
+        //overridePendingTransition(R.anim.activity_left_in, R.anim.activity_left_out);
+    }
 
     /**
-     * 状态栏颜色,默认不填充状态栏
+     * 设置标题栏的标题
      */
-    protected open fun statusBarColor(): Int = Color.TRANSPARENT
+    override fun setTitle(@StringRes id: Int) {
+        title = getString(id)
+    }
 
 
     /**
-     * 标题栏高度(如果不需要状态栏需要重写statusBarColor()方法)
-     *
-     * @return 返回标题栏的高度
+     * 设置标题栏的标题
      */
-    protected open fun customTitleHeight(): Int = 0
+    override fun setTitle(title: CharSequence?) {
+        if (mTitleBar != null) {
+            mTitleBar!!.title = title
+        }
+    }
+
 
     /**
-     * 是否需要多状态的View，如果不需要多状态的View可以减少层级，默认是需要
-     * 如果页面不需要可以重写方法返回false
-     *
-     * @return 为true时会在layout外在封装一层MultiStatusLayout
+     * 初始化沉浸式状态栏
      */
-    protected open fun isNeedMultiStatusLayout(): Boolean = true
+    protected open fun createStatusBarConfig(): ImmersionBar? {
+        // 在BaseActivity里初始化
+        mImmersionBar = ImmersionBar.with(this) // 默认状态栏字体颜色为黑色
+                .statusBarDarkFont(isStatusBarDarkFont())
+        return mImmersionBar
+    }
 
     /**
-     * 是否需要透明状态栏，默认false
-     *
+     * 状态栏字体深色模式
      */
-    protected open fun isNeedStatus() = false
+    protected open fun isStatusBarDarkFont(): Boolean {
+        return true
+    }
+
+
+    override fun onDestroy() {
+        if (isShowLoadingDialog()) {
+            mLoadingDialog!!.dismiss()
+        }
+        mLoadingDialog = null
+        if (isShowLoadingView()) {
+            mLoadingView!!.dismiss()
+        }
+        mLoadingView = null
+        super.onDestroy()
+    }
 
     /**
-     * 不管状态一直在上层显示的View的ID
+     * 当前加载对话框是否在显示中
      */
-    protected open fun staticTopViewId(): Int = 0
+    open fun isShowLoadingDialog(): Boolean {
+        return mLoadingDialog != null && mLoadingDialog!!.isShowing
+    }
+
+    /**
+     * 当前加载动画是否在显示中
+     */
+    open fun isShowLoadingView(): Boolean {
+        return mLoadingView != null && mLoadingView!!.isShowing
+    }
+
+
+    /**
+     * 显示加载对话框
+     */
+    open fun showLodingDialog() {
+        if (mLoadingDialog == null) {
+            mLoadingDialog = WaitDialog.Builder(this)
+                    .setCancelable(false)
+                    .create()
+        }
+        if (!mLoadingDialog!!.isShowing) {
+            mLoadingDialog!!.show()
+        }
+        mDialogTotal++
+    }
+
+    /**
+     * 显示加载
+     */
+    open fun showLodingView() {
+        if (mLoadingView == null) {
+            mLoadingView = LoadingDialog.Builder(this)
+                    .setCancelable(false)
+                    .create()
+        }
+        if (!mLoadingView!!.isShowing) {
+            mLoadingView!!.show()
+        }
+        mDialogTotal++
+    }
+
+    /**
+     * 隐藏加载对话框
+     */
+    open fun hideLoadingDialog() {
+        if (mDialogTotal == 1) {
+            mLoadingDialog?.dismiss()
+        }
+        if (mDialogTotal > 0) {
+            mDialogTotal--
+        }
+    }
+
+    /**
+     * 隐藏加载对话框
+     */
+    open fun hideLoadingView() {
+        if (mDialogTotal == 1) {
+            mLoadingView?.dismiss()
+        }
+        if (mDialogTotal > 0) {
+            mDialogTotal--
+        }
+    }
+
+    /**
+     * 初始化软键盘
+     */
+    protected open fun initSoftKeyboard() {
+        // 点击外部隐藏软键盘，提升用户体验
+        getContentView()?.singleClick { hideSoftKeyboard() }
+    }
+
+
+    /**
+     * 和 setContentView 对应的方法
+     */
+    open fun getContentView(): ViewGroup? {
+        return findViewById(Window.ID_ANDROID_CONTENT)
+    }
 
     /**
      * 添加布局文件
@@ -176,9 +277,6 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun initLayoutId(): Int
 
     protected open fun initView(savedInstanceState: Bundle?) {
-        if (isNeelLoadingDialog()) {
-            mLoadingDialog = LoadingDialog(mContext)
-        }
     }
 
     /**
@@ -196,37 +294,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     /**
-     * 是否展示loading 转圈
-     *
-     * @param show true展示
-     */
-    fun setProgressVisible(show: Boolean) {
-        if (mProgressView == null) {
-            val rootView = window.decorView as ViewGroup
-            mProgressView = layoutInflater.inflate(R.layout.loading_layout, rootView, false)
-            mLoadingView = mProgressView?.findViewById(R.id.loading_view)
-            rootView.addView(mProgressView)
-        }
-        if (mProgressView != null) {
-            val shortAnimTime = resources.getInteger(android.R.integer.config_shortAnimTime)
-            mProgressView?.visibility = if (show) View.VISIBLE else View.GONE
-            mLoadingView?.visibility = if (show) View.VISIBLE else View.GONE
-            mProgressView?.animate()
-                ?.setDuration(shortAnimTime.toLong())
-                ?.alpha(
-                    (if (show) 1 else 0).toFloat()
-                )
-                ?.setListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator) {
-                        mProgressView?.visibility = if (show) View.VISIBLE else View.GONE
-                        mLoadingView?.visibility = if (show) View.VISIBLE else View.GONE
-                    }
-                })
-
-        }
-    }
-
-    /**
      * 显示loading状态 动画
      * 需要多状态布局
      *
@@ -236,100 +303,92 @@ abstract class BaseActivity : AppCompatActivity() {
         if (!TextUtils.isEmpty(loadMessage)) {
             ToastUtils.showShort(loadMessage!!)
         }
-        mStatusLayout?.showLoading()
+    }
+
+    override fun getBundle(): Bundle? {
+        return intent.extras
     }
 
     /**
-     * 显示LoadingDialog
+     * 获取当前 Activity 对象
      */
-    open fun showLoadingDialog() {
-        if (!mLoadingDialog?.isShowing!!) {
-            mLoadingDialog?.show()
+    protected open fun getActivity(): BaseActivity? {
+        return this
+    }
+
+    /**
+     * startActivity 方法简化
+     */
+    open fun startActivity(clazz: Class<out Activity?>?) {
+        startActivity(Intent(this, clazz))
+    }
+
+    open fun startActivityForResult(clazz: Class<out Activity?>?, callback: OnActivityCallback) {
+        startActivityForResult(Intent(this, clazz), null, callback)
+    }
+
+    open fun startActivityForResult(intent: Intent?, options: Bundle?,
+                                    callback: OnActivityCallback) {
+        // 回调还没有结束，所以不能再次调用此方法，这个方法只适合一对一回调，其他需求请使用原生的方法实现
+        if (mActivityCallback == null) {
+            mActivityCallback = callback
+            // 随机生成请求码，这个请求码必须在 2 的 16 次幂以内，也就是 0 - 65535
+            mActivityRequestCode = Random().nextInt(2.0.pow(16.0).toInt())
+            startActivityForResult(intent, mActivityRequestCode, options)
         }
     }
 
-    /**
-     * 隐藏LoadingDialog
-     */
-    open fun dismissLoadingDialog() {
-        mLoadingDialog?.dismiss()
+    open fun startActivityForResult(intent: Intent?, callback: OnActivityCallback) {
+        startActivityForResult(intent, null, callback)
     }
 
-    /**
-     * 显示loading状态 动画
-     * 需要多状态布局
-     *
-     * @param loadMessage 提示信息可以为空
-     */
-    open fun showLoading(loadMessage: Int?) {
-        if (loadMessage != 0) {
-            ToastUtils.showShort(loadMessage!!)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (mActivityCallback != null && mActivityRequestCode == requestCode) {
+            mActivityCallback!!.onActivityResult(resultCode, data)
+            mActivityCallback = null
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
         }
-        mStatusLayout?.showLoading()
+        //overridePendingTransition(R.anim.activity_right_in, R.anim.activity_right_out);
     }
 
     /**
-     * 隐藏LoadingView，如果直接显示内容或者空状态或者错误状态可以不用调用 动画
-     * 需要多状态布局
+     * 如果当前的 Activity（singleTop 启动模式） 被复用时会回调
      */
-    open fun hideLoading() {
-        mStatusLayout?.hideLoading()
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        // 设置为当前的 Intent，避免 Activity 被杀死后重启 Intent 还是最原先的那个
+        setIntent(intent)
     }
 
-    /**
-     * 数据加载成功显示内容
-     * 需要多状态布局
-     */
-    open fun showContent() {
-        mStatusLayout?.showContent()
+    override fun startActivityForResult(intent: Intent?, requestCode: Int, options: Bundle?) {
+        hideSoftKeyboard()
+        // 查看源码得知 startActivity 最终也会调用 startActivityForResult
+        super.startActivityForResult(intent, requestCode, options)
+        //overridePendingTransition(R.anim.activity_right_in, R.anim.activity_right_out);
     }
 
+
     /**
-     * 显示错误状态
-     * 需要多状态布局
-     *
-     * @param message       提示信息
-     * @param retryCallBack 错误的操作回调
+     * 隐藏软键盘
      */
-    open fun showError(message: String?, retryCallBack: MultiStatusLayout.OnRetryCallBack?) {
-        if (!TextUtils.isEmpty(message)) {
-            ToastUtils.showShort(message!!)
+    private fun hideSoftKeyboard() {
+        // 隐藏软键盘，避免软键盘引发的内存泄露
+        val view = currentFocus
+        if (view != null) {
+            val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            manager.hideSoftInputFromWindow(view.windowToken, 0)
         }
-        mStatusLayout?.setRetryCallBack(retryCallBack)
-        mStatusLayout?.showError()
     }
 
-    /**
-     * 显示错误状态
-     * 需要多状态布局
-     *
-     * @param message       提示信息
-     * @param retryCallBack 错误的操作回调
-     */
-    open fun showError(message: Int?, retryCallBack: MultiStatusLayout.OnRetryCallBack?) {
-        if (message != 0) {
-            ToastUtils.showShort(message!!)
-        }
-        mStatusLayout?.setRetryCallBack(retryCallBack)
-        mStatusLayout?.showError()
-    }
-
-    /**
-     * 显示数据为空的状态
-     * 需要多状态布局
-     */
-    open fun showEmpty() {
-        mStatusLayout?.showEmpty()
-    }
-
-
-    //检查网络是否可用(点击的时候调用)
-    open fun checkNetWork(): Boolean {
-        val connected: Boolean = NetworkUtils.isConnected()
-        if (!connected) {
-            ToastUtils.showShort(R.string.info_net_error)
-        }
-        return connected
+    interface OnActivityCallback {
+        /**
+         * 结果回调
+         *
+         * @param resultCode 结果码
+         * @param data       数据
+         */
+        fun onActivityResult(resultCode: Int, data: Intent?)
     }
 
 }

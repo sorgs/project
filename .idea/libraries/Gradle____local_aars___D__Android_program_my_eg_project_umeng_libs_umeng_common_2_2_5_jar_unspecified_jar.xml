@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_aars__:D./Android_program/my_eg/project/umeng/libs/umeng-common-2.2.5.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/umeng/libs/umeng-common-2.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,8 +1,8 @@
 package com.sorgs.baseproject.utils
 
 import android.annotation.SuppressLint
-import android.support.annotation.StringRes
 import android.widget.Toast
+import androidx.annotation.StringRes
 import com.sorgs.baseproject.base.SorgsOptions
 
 /**

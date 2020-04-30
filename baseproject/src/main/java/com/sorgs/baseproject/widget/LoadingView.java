@@ -6,11 +6,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.FloatRange;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+
+import androidx.annotation.FloatRange;
+import androidx.annotation.Nullable;
 
 /**
  * description: 全屏loading动画 执行完一遍动画2秒。

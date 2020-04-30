@@ -1,1 +1,1 @@
-include ':baseproject', ':app'
+include ':umeng',':baseproject', ':app'

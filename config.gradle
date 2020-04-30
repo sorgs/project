@@ -1,0 +1,46 @@
+// 通用配置
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 3
+        versionName "3.13"
+        //proguard文件打包进aar中
+        consumerProguardFiles 'proguard-rules.pro'
+        //兼容Android6.0系统所需，如果这句话报错，可在dependencies标签下使用compile 'cn.bmob.android:http-legacy:1.0'**
+        useLibrary 'org.apache.http.legacy'
+        //仅保留中文语种的资源
+        resConfig 'zh'
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi', 'arm64-v8a', 'armeabi-v7a' //, 'x86', 'x86_64'
+        }
+    }
+
+    // 支持 Java JDK 8
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        javaMaxHeapSize "8g" //此处可根据电脑本身配置 数值越大 当然越快
+        preDexLibraries = false
+    }
+
+    // 设置 SO 库存放目录
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    // 依赖 libs 目录下所有 jar 包
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    // 依赖 libs 目录下所有 aar 包
+    api fileTree(include: ['*.aar'], dir: 'libs')
+}

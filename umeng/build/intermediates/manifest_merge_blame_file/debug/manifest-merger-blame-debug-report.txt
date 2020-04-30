@@ -1,0 +1,125 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.sorgs.umeng"
+4    android:versionCode="3"
+5    android:versionName="3.13" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+10
+11    <!-- 共同权限 -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:5:5-67
+12-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:5:22-64
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:6:5-76
+13-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:6:22-73
+14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+14-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:7:5-79
+14-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:7:22-76
+15
+16    <!-- 友盟统计 -->
+17    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+17-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:10:5-75
+17-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:10:22-72
+18
+19    <!-- 友盟社会化 -->
+20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+20-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:13:5-80
+20-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:13:22-77
+21    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+21-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:14:5-81
+21-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:14:22-78
+22
+23    <application>
+23-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:16:5-71:19
+24
+25        <!-- 友盟 Key（请在 Gradle 中配置，请不要在此处修改） -->
+26        <meta-data
+27            android:name="UMENG_APPKEY"
+27-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:20:13-40
+28            android:value="5e6af3f70cafb2f6740002ed" />
+28-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:21:13-44
+29
+30        <!-- QQ AppId（请在 Gradle 中配置，请不要在此处修改） -->
+31        <meta-data
+32            android:name="QQ_APPID"
+32-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:25:13-36
+33            android:value="101861046" />
+33-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:26:13-40
+34        <!-- QQ Key（请在 Gradle 中配置，请不要在此处修改） -->
+35        <meta-data
+36            android:name="QQ_APPKEY"
+36-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:29:13-37
+37            android:value="c779595f6f513d799c6643cfaee87fef" />
+37-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:30:13-41
+38
+39        <!-- 微信 AppId（请在 Gradle 中配置，请不要在此处修改） -->
+40        <meta-data
+41            android:name="WX_APPID"
+41-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:34:13-36
+42            android:value="wxdc1e388c3822c80b" />
+42-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:35:13-40
+43        <!-- 微信 Key（请在 Gradle 中配置，请不要在此处修改） -->
+44        <meta-data
+45            android:name="WX_APPKEY"
+45-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:38:13-37
+46            android:value="3baf1193c85774b3fd9d18447d76cab0" />
+46-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:39:13-41
+47
+48        <!-- 友盟社会化 -->
+49
+50
+51        <!-- QQ 回调 -->
+52        <activity
+52-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:44:9-56:20
+53            android:name="com.tencent.tauth.AuthActivity"
+53-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:45:13-58
+54            android:launchMode="singleTask"
+54-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:46:13-44
+55            android:noHistory="true" >
+55-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:47:13-37
+56            <intent-filter>
+56-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:48:13-55:29
+57                <action android:name="android.intent.action.VIEW" />
+57-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:49:17-69
+57-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:49:25-66
+58
+59                <category android:name="android.intent.category.DEFAULT" />
+59-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:51:17-76
+59-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:51:27-73
+60                <category android:name="android.intent.category.BROWSABLE" />
+60-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:52:17-78
+60-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:52:27-75
+61
+62                <data android:scheme="tencent101861046" />
+62-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:54:23-58
+63            </intent-filter>
+64        </activity>
+65        <activity
+65-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:58:9-61:75
+66            android:name="com.tencent.connect.common.AssistActivity"
+66-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:59:13-69
+67            android:configChanges="orientation|keyboardHidden|screenSize"
+67-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:60:13-74
+68            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+68-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:61:13-72
+69
+70        <!-- 微信回调（请注意这个 Activity 放置的包名要和当前项目的包名保持一致，否则将不能正常回调） -->
+71        <!-- suppress AndroidDomInspection -->
+72        <activity
+72-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:65:9-69:75
+73            android:name="${applicationId}.wxapi.WXEntryActivity"
+73-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:66:13-66
+74            android:configChanges="keyboardHidden|orientation|screenSize"
+74-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:67:13-74
+75            android:exported="true"
+75-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:68:13-36
+76            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+76-->D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:69:13-72
+77    </application>
+78
+79</manifest>

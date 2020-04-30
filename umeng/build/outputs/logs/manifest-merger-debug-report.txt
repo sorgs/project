@@ -1,0 +1,143 @@
+-- Merging decision tree log ---
+meta-data#UMENG_APPKEY
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:19:9-21:47
+	android:value
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:21:13-44
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:20:13-40
+meta-data#QQ_APPID
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:24:9-26:43
+	android:value
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:26:13-40
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:25:13-36
+meta-data#QQ_APPKEY
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:28:9-30:44
+	android:value
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:30:13-41
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:29:13-37
+meta-data#WX_APPID
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:33:9-35:43
+	android:value
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:35:13-40
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:34:13-36
+meta-data#WX_APPKEY
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:37:9-39:44
+	android:value
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:39:13-41
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:38:13-37
+data
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:54:17-61
+	android:scheme
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:54:23-58
+manifest
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+	package
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:2:5-30
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:1-73:12
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:6:5-76
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:6:22-73
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:7:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:10:5-75
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:10:22-72
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:13:5-80
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:13:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:14:5-81
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:14:22-78
+application
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:16:5-71:19
+activity#com.tencent.tauth.AuthActivity
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:44:9-56:20
+	android:launchMode
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:46:13-44
+	android:noHistory
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:45:13-58
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:tencent101861046
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:48:13-55:29
+action#android.intent.action.VIEW
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:49:17-69
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:49:25-66
+category#android.intent.category.DEFAULT
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:51:17-76
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:51:27-73
+category#android.intent.category.BROWSABLE
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:52:17-78
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:52:27-75
+activity#com.tencent.connect.common.AssistActivity
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:58:9-61:75
+	android:configChanges
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:60:13-74
+	android:theme
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:61:13-72
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:59:13-69
+activity#${applicationId}.wxapi.WXEntryActivity
+ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:65:9-69:75
+	android:exported
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:68:13-36
+	android:configChanges
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:67:13-74
+	android:theme
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:69:13-72
+	android:name
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml:66:13-66
+uses-sdk
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_program\my_eg\project\umeng\src\main\AndroidManifest.xml
