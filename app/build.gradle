@@ -51,10 +51,10 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.*'])
     //debugImplementation files('libs/baseproject-release.aar')
 
-    implementation project(':baseproject') //debug 版本直接引用本地项目
+    //implementation project(':baseproject') //debug 版本直接引用本地项目
     //releaseImplementation 'com.github.sorgs:project:v2.2'   //release 版本引用远程版本用来最终测试发现问题
     //butterknife
     implementation 'com.jakewharton:butterknife:9.0.0-rc3'

@@ -1,0 +1,214 @@
+[
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_right_out.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_right_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_tooltip_exit.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_tooltip_exit.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\anim\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\layout_fall_down.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\layout_fall_down.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_checkbox_to_unchecked_check_path_merged_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_checkbox_to_unchecked_check_path_merged_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_radio_to_off_mtrl_ring_outer_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_radio_to_off_mtrl_ring_outer_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\anim\\design_snackbar_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_bottom_in.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_bottom_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_radio_to_off_mtrl_dot_group_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_radio_to_off_mtrl_dot_group_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_checkbox_to_unchecked_box_inner_merged_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_checkbox_to_unchecked_box_inner_merged_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\layout_from_right.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\layout_from_right.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_radio_to_on_mtrl_ring_outer_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_radio_to_on_mtrl_ring_outer_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_checkbox_to_checked_box_inner_merged_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_checkbox_to_checked_box_inner_merged_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\item_from_bottom.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\item_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_right_in.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_right_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_checkbox_to_unchecked_icon_null_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_checkbox_to_unchecked_icon_null_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_radio_to_on_mtrl_dot_group_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_radio_to_on_mtrl_dot_group_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_left_in.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_left_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_bottom_out.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_bottom_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_ios_in.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_ios_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_scale_in.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_scale_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_scale_out.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_scale_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_radio_to_on_mtrl_ring_outer_path_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_radio_to_on_mtrl_ring_outer_path_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_left_out.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_left_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\layout_from_bottom.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\layout_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_radio_to_off_mtrl_ring_outer_path_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_radio_to_off_mtrl_ring_outer_path_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\activity_left_in.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\activity_left_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\activity_right_in.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\activity_right_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_ios_out.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_ios_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_checkbox_to_checked_icon_null_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_checkbox_to_checked_icon_null_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\activity_right_out.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\activity_right_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_top_in.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_top_in.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\item_fall_down.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\item_fall_down.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\abc_tooltip_enter.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\abc_tooltip_enter.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\window_top_out.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\window_top_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\btn_checkbox_to_checked_box_outer_merged_animation.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\02820e668c2841a8036fa04d7f80ecaa\\appcompat-1.1.0\\res\\anim\\btn_checkbox_to_checked_box_outer_merged_animation.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\anim\\design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\activity_left_out.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\activity_left_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\mtrl_card_lowers_interpolator.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\anim\\mtrl_card_lowers_interpolator.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\mtrl_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\anim\\mtrl_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\item_from_right.xml",
+        "source": "D:\\Android_program\\my_eg\\project\\baseproject\\src\\main\\res\\anim\\item_from_right.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\anim\\mtrl_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\anim\\mtrl_bottom_sheet_slide_in.xml"
+    }
+]

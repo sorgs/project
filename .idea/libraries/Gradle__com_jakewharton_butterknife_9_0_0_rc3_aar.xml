@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jakewharton:butterknife:9.0.0-rc3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/411dd67addcdea393934abd477840dd9/jetified-butterknife-9.0.0-rc3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/411dd67addcdea393934abd477840dd9/jetified-butterknife-9.0.0-rc3/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/9.0.0-rc3/41234da51592955dc9db3fd6fa86f5e150a38e8/butterknife-9.0.0-rc3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/9.0.0-rc3/7cc1a77860e19f14c0b7bfd61323eb1a1049593d/butterknife-9.0.0-rc3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

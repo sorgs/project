@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\xml\\standalone_badge.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\xml\\standalone_badge.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\xml\\standalone_badge_gravity_top_start.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\xml\\standalone_badge_gravity_top_start.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\xml\\standalone_badge_gravity_bottom_start.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\xml\\standalone_badge_gravity_bottom_start.xml"
+    },
+    {
+        "merged": "D:\\Android_program\\my_eg\\project\\baseproject\\build\\intermediates\\res\\merged\\release\\xml\\standalone_badge_gravity_bottom_end.xml",
+        "source": "C:\\Users\\sorgs.li\\.gradle\\caches\\transforms-2\\files-2.1\\c057b2ce1c2256047c689c791107cad7\\material-1.1.0\\res\\xml\\standalone_badge_gravity_bottom_end.xml"
+    }
+]

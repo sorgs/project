@@ -15,6 +15,7 @@ import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
 import com.sorgs.baseproject.action.BundleAction
 import com.sorgs.baseproject.action.ClickAction
+import com.sorgs.baseproject.action.HandlerAction
 import com.sorgs.baseproject.action.TitleBarAction
 import com.sorgs.baseproject.dialog.LoadingDialog
 import com.sorgs.baseproject.dialog.WaitDialog
@@ -29,7 +30,7 @@ import kotlin.math.pow
  * @author Sorgs.
  * Created date: 2018/12/31.
  */
-abstract class BaseActivity : AppCompatActivity(), ClickAction, BundleAction, TitleBarAction {
+abstract class BaseActivity : AppCompatActivity(), ClickAction, BundleAction, TitleBarAction, HandlerAction {
     /**
      * Tag
      */

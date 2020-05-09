@@ -1,0 +1,107 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+	package
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:2:5-36
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:1-47:12
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:7:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:9:5-76
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:9:22-73
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:11:5-68
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:11:22-65
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:13:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:15:5-75
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:15:22-72
+uses-permission#android.permission.CHANGE_NETWORK_STATE
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:17:5-79
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:17:22-76
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:19:5-80
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:19:22-77
+uses-permission#android.permission.CAMERA
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:21:5-65
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:21:22-62
+application
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:23:5-45:19
+activity#com.sorgs.baseproject.activity.PhotoActivity
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:25:9-30:52
+	android:screenOrientation
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:30:13-49
+	android:label
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:28:13-48
+	android:launchMode
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:29:13-43
+	android:configChanges
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:27:13-74
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:26:13-51
+activity#com.sorgs.baseproject.activity.CameraActivity
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:33:9-37:52
+	android:screenOrientation
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:37:13-49
+	android:launchMode
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:36:13-43
+	android:configChanges
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:35:13-74
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:34:13-52
+activity#com.sorgs.baseproject.activity.ImageActivity
+ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:40:9-44:52
+	android:screenOrientation
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:44:13-49
+	android:launchMode
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:43:13-43
+	android:configChanges
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:42:13-74
+	android:name
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml:41:13-51
+uses-sdk
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+		ADDED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
+		INJECTED from D:\Android_program\my_eg\project\baseproject\src\main\AndroidManifest.xml
